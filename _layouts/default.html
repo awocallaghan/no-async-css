@@ -8,24 +8,26 @@
 	</head>
 
 	<body>
+		<div class="wrapper">
+			<header>
+				<div class="container">
+					<h1>Alex O'Callaghan</h1>
+				</div>
+			</header>
+			<nav>
+				<div class="container">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/projects">Projects</a></li>
+					</ul>
+				</div>
+			</nav>
 
-		<header>
-			<div class="container">
-				<h1>Alex O'Callaghan</h1>
-			</div>
-		</header>
-		<nav>
-			<div class="container">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/about">About</a></li>
-					<li><a href="/projects">Projects</a></li>
-				</ul>
-			</div>
-		</nav>
+			{{ content }}
 
-		{{ content }}
-
+			<div class="push"></div>
+		</div>
 		<footer>
 			<div class="container">
 				Copyright &copy; Alex O'Callaghan
