@@ -51,6 +51,7 @@ nav li a:hover, nav li a:active {
 #content {
 	background: #FFF;
 	padding: 10px;
+	margin-top: 15px;
 }
 
 footer {
