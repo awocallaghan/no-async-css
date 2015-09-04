@@ -55,4 +55,6 @@ nav li a:hover, nav li a:active {
 
 footer {
 	line-height: 45px;
+	background: #3C3D3D;
+	color: #FFF;
 }
