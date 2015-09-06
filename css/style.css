@@ -4,7 +4,7 @@ html, body {
 }
 body {
 	font-family: Arial;
-	font-size: 12px;
+	font-size: 14px;
 	background: #D4D6D6;
 }
 .wrapper {
@@ -17,49 +17,31 @@ footer, .push {
 	height: 45px;
 }
 
-header {
-	height: 100px;
-	background: #1D6780;
-}
-header h1 {
-	color: #FFF;
-	float: left;
-	margin: 0;
-	line-height: 100px;
-}
-header h2 {
-	color: #B3B5B5;
-	float: left;
-	padding-left: 5px;
-	margin: 0;
-	line-height: 100px;
+.navbar {
+	margin-bottom: 0;
 }
 
-nav {
-	height: 45px;
-	line-height: 45px;
+.jumbotron {
+	margin-bottom: 0;
+}
+.jumbotron h1 .highlight {
+	color: #1D6780;
+}
+
+.content-header {
+	height: 60px;
 	background: #3C3D3D;
 }
-nav ul {
+.content-header h2 {
 	margin: 0;
-}
-nav li {
-	display: inline;
-	list-style: none;
-	padding: 15px;
-}
-nav li a:link, nav li a:visited {
+	line-height: 60px;
 	color: #FFF;
-	text-decoration: none;
-}
-nav li a:hover, nav li a:active {
-	color: #E0E0E0;
 }
 
-#content {
+.content {
 	background: #FFF;
 	padding: 10px;
-	margin-top: 15px;
+	margin: 15px auto 15px auto;
 }
 
 footer {
