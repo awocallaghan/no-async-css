@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Hello world!
+keywords: hello world, example blog post
+description: Hello world! This is an example blog post first created to test Jekyll
 ---
 {{ page.title }}
 =================
