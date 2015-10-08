@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jumper</title>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div id="game"></div>
+
+  <script type="text/javascript">
+
+  var width = window.innerWidth, height = window.innerHeight;
+
+  var game = new Phaser.Game(width, height, Phaser.AUTO, 'game', { preload: preload });
+
+  // Google web fonts loader object
+  WebFontConfig = {
+    google : {
+      families: ['Roboto']
+    }
+  };
+
+  var GameStates = {};
+
+  /*
+   * Main Menu initial game state
+   */
+  Particle = function (state, x, y) {
+    Phaser.Particle.call(this, game, x, y, game.cache.getBitmapData('particle'));
+  };
+  Particle.prototype = Object.create(Phaser.Particle.prototype);
+  Particle.prototype.constructor = Particle;
+  GameStates.MainMenu = function () {};
+  GameStates.MainMenu.prototype = {
+    preload: function () {
+
+    },
+    create : function () {
+      // add particle emitter in background
+      var particleData = this.add.bitmapData(64,64);
+      if (game.score != null && game.score > game.highScore) {
+        particleData.ctx.fillStyle = "#FF0000";
+      } else {
+        particleData.ctx.fillStyle = "#0F4E63";
+      }
+      particleData.ctx.beginPath();
+      particleData.ctx.arc(0, 0, 50, 0, 2 * Math.PI);
+      particleData.fill();
+      this.cache.addBitmapData('particle', particleData);
+
+      this.emitter = this.add.emitter(game.world.centerX, 0, 100);
+      this.emitter.particleClass = Particle;
+      this.emitter.width = width;
+
+      this.emitter.makeParticles();
+
+      this.emitter.minParticleSpeed.setTo(-300, 30);
+      this.emitter.maxParticleSpeed.setTo(300, 100);
+      this.emitter.minParticleScale = 0.1;
+      this.emitter.maxParticleScale = 0.5;
+      this.emitter.gravity = 250;
+
+      this.emitter.flow(2000, 100, 5, -1);
+
+      // add relevant text
+      var titleStyle = { font: 'bold 60px Roboto', fill : '#FFF', align: 'center', stroke: 'black', };
+      var subTextStyle = { font: 'italic 25px Robot', fill : '#FFF', align: 'center' };
+      var commandStyle = { font: 'bold 35px Robot', fill : '#FFF', align: 'center' };
+      if (game.score == null) {
+        this.titleText = this.add.text(game.world.centerX, 200, "jumper", titleStyle);
+        this.titleText.anchor.set(0.5);
+
+        this.subText = this.add.text(game.world.centerX, 300, "an infinite running game", subTextStyle);
+        this.subText.anchor.set(0.5);
+
+        this.commandText = this.add.text(game.world.centerX, game.world.centerY, "tap to start", commandStyle);
+        this.commandText.anchor.set(0.5);
+      } else {
+        if (game.score > game.highScore) {
+          game.highScore = game.score;
+          this.titleText = this.add.text(game.world.centerX, 200, "New highscore!", titleStyle);
+        } else {
+          this.titleText = this.add.text(game.world.centerX, 200, "Game over!", titleStyle);
+        }
+        this.titleText.anchor.set(0.5);
+
+        this.subText = this.add.text(game.world.centerX, 300, "score: " + game.score + "\nhighscore: " + game.highScore, subTextStyle);
+        this.subText.anchor.set(0.5);
+
+        this.commandText = this.add.text(game.world.centerX, game.world.centerY, "tap to replay", commandStyle);
+        this.commandText.anchor.set(0.5);
+      }
+
+      this.input.onDown.add(this.startGame, this);
+    },
+    startGame : function () {
+      game.state.start('Play');
+    }
+  };
+
+  /*
+   * Gameplay state
+   */
+  GameStates.Play = function () {};
+  GameStates.Play.prototype = {
+    // Load assets before play starts
+    preload : function () {
+      this.load.image('player', 'img/player.png');
+      this.load.image('grass', 'img/grass.png');
+    },
+    create : function () {
+      game.score = 0; // init score
+      this.jumpTimer = 0; // init timer used for charging player's jump
+      this.lastEmpty = false; // boolean value used when extending map to ensure empty spaces don't stack to create an unjumpable empty space
+
+      // start the physics engine
+      this.physics.startSystem(Phaser.Physics.ARCADE);
+
+      // create player sprite
+      this.player = this.add.sprite(game.world.centerX, height-200, 'player');
+      this.physics.enable(this.player);
+      this.player.body.collideWorldBounds = true;
+      this.player.body.gravity.y = 400;
+
+      // create ground group
+      this.ground = this.add.group();
+      this.groundSprites = [];
+      this.groundWidth = 0;
+      this.ground.enableBody = true;
+
+      // create initial grass
+      var initialGrassWidth = Math.round((2*(width/3))/32);
+      for (var i = 0; i < initialGrassWidth; i++) {
+        var grass = this.add.tileSprite(this.groundWidth * 32, height - 100, 32, 100, 'grass');
+        this.groundSprites.push(grass);
+        this.ground.add(grass);
+
+        grass.body.immovable = true;
+        this.groundWidth++;
+      }
+
+      // call first extension of map
+      this.extending = true;
+      this.extend();
+    },
+    update : function () {
+      // Collide player with ground
+      this.physics.arcade.collide(this.player, this.ground);
+
+      // Extend map if necessary
+      console.log("Current groundWidth = " + this.groundWidth);
+      if (this.groundWidth < (width/32)*2 && !this.extending) {
+        console.log("Extending map");
+        this.extending = true;
+        this.extend();
+      }
+
+      // Check player has fallen
+      if (this.player.y > height - 100) {
+        console.log(this.ground);
+        console.log(this.groundSprites);
+        this.game.state.start('MainMenu');
+      }
+
+      // check for jump input
+      this.jump();
+
+      // scroll the ground
+      this.ground.forEach(this.scroll, this);
+
+      // update score text
+      this.updateScore();
+    },
+    jump : function () {
+      // initial player jump
+      if ((this.input.mousePointer.isDown || this.input.pointer1.isDown) && this.player.body.touching.down) {
+        this.jumpTimer = game.time.time;
+        this.player.body.velocity.y = -250;
+      }
+      // player is in the air but still holding down
+      else if ((this.input.mousePointer.isDown || this.input.pointer1.isDown) && (this.jumpTimer != 0)) {
+        // time to stop jumping
+        if (this.jumpTimer > 1000) {
+          this.jumpTimer = 0;
+        }
+        // or keep going
+        else {
+          this.player.body.velocity.y = -250;
+        }
+      }
+      // reset jumptimer because input has been released
+      else if (this.jumpTimer != 0) {
+        this.jumpTimer = 0;
+      }
+    },
+    extend : function () {
+      var extendWidth = (Math.round((width/32)) * 3) - this.groundWidth;
+
+      for (var i = 0; i < extendWidth; i++) {
+        var type = Math.random();
+        if (type < 0.5 || this.lastEmpty) {
+          if (this.lastEmpty) this.lastEmpty = false;
+          var grassLength = Math.round(Math.random() * 5) + 1;
+          var grassHeight = (Math.round(Math.random() * 2) * 32) + 100;
+          var grass = this.add.tileSprite(this.groundWidth * 32, height - grassHeight, 32 * grassLength, grassHeight, 'grass');
+          this.groundSprites.push(grass);
+          this.ground.add(grass);
+          grass.body.immovable = true;
+
+          this.groundWidth += grassLength;
+          i += grassLength - 1;
+        } else {
+          var emptyLength = Math.round(Math.random() * 2) + 1;
+          this.groundWidth += emptyLength;
+          i += emptyLength - 1;
+          this.lastEmpty = true;
+        }
+      }
+      this.extending = false;
+      console.log("Map extended by " + extendWidth);
+      console.log("Now groundWidth = " + this.groundWidth);
+    },
+    scroll : function (groundSprite) {
+      groundSprite.x -= 3;
+      if (groundSprite.x + groundSprite.width < 0) {
+        this.groundWidth -= (groundSprite.width/32);
+        var index = this.groundSprites.indexOf(groundSprite);
+        if (index > -1) {
+          this.groundSprites.splice(index, 1);
+        }
+        this.ground.remove(groundSprite);
+        this.world.remove(groundSprite);
+        game.score++;
+      }
+    },
+    updateScore : function () {
+      if (this.scoreText != null) {
+        this.scoreText.destroy();
+      }
+      var style = { font: 'bold 35px Robot', fill : '#FFF', align: 'center' };
+      this.scoreText = this.add.text(game.world.centerX, 100, "Score: " + game.score + ", Highscore: " + game.highScore, style);
+      this.scoreText.anchor.set(0.5);
+    }
+  };
+
+  /*
+   * Initial preload for game
+   */
+   function preload () {
+     // Set background color
+     game.stage.backgroundColor = '#36AED6';
+
+     game.highScore = 0;
+
+     // Load Google WebFont loader script
+     game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+
+     // Add states to game
+     game.state.add('MainMenu', GameStates.MainMenu);
+     game.state.add('Play', GameStates.Play);
+     game.state.add('GameOver', GameStates.GameOver);
+
+     // Start initial state
+     game.state.start('MainMenu');
+   }
+
+  </script>
+
+  </body>
+</html>
