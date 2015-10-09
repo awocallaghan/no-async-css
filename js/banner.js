@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  $(".banner").show();
+
   var BOX_WIDTH = 50;
   var width;
 

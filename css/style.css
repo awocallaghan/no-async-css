@@ -22,6 +22,7 @@ footer, .push {
 }
 
 .banner {
+	display: none;
 	height: 50px;
 	clear: both;
 }
