@@ -1,69 +1,36 @@
 ---
-layout: default
-title: Alex O'Callaghan
-keywords: alex o'callaghan,computer science,web design,web development,front end development,html,css,php,java,javascript,nodejs,express,angularjs,postgresql,programmer,portfolio
-description: Personal website of Alex O'Callaghan, Computer Science undergraduate at University of Southampton
-includes:
+layout: page
+description: "Computer Science undergraduate"
 ---
-<div class="banner" id="top">
 
+{% for post in paginator.posts %}
+<div class="post-preview">
+    <a href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
-<div id="about" class="content-header">
-	<div class="container">
-		<h2>About me</h2>
-	</div>
-</div>
-<div class="content container">
-	<p>My name is Alex O'Callaghan and I am a Computer Science undergraduate studying at <a href="http://www.southampton.ac.uk" target="_blank">University of Southampton</a>. I love making websites and useful tools that help people.</p>
-	<p>You can find me on Twitter: <a href="http://twitter.com/alexocallaghan" target="_blank">@alexocallaghan</a>,</p>
-	<p>Have a look at some of my code on GitHub: <a href="https://github.com/awocallaghan" target="_blank">awocallaghan on GitHub</a>,</p>
-	<p>And I'm also on LinkedIn: <a href="http://uk.linkedin.com/in/awocallaghan" target="_blank">Alex O'Callaghan on LinkedIn</a></p>
-</div>
+<hr>
+{% endfor %}
 
-<div id="projects" class="content-header">
-	<div class="container">
-		<h2>Projects</h2>
-	</div>
-</div>
-<div class="content container">
-	<div class="row">
-		<div class="col-md-4">
-			<h3>FootyFeeds</h3>
-			<p>FootyFeeds is a football news aggregator the gathers football news articles from popular RSS feeds. The website was created using Nodejs, Express, AngularJS and Twitter's <a href="http://getboostrap.com" target="_blank">Bootstrap</a> as well as using a postgreSQL database.</p>
-			<a class="btn btn-primary" href="http://footyfeeds.net" target="_blank">Check it out</a>
-		</div>
-		<div class="col-md-4">
-			<h3>Crime map of London</h3>
-			<p>For my EPQ A Level (Extended Project Qualification) I created a map of crime in London in 2013 using Google Maps API.</p>
-			<a class="btn btn-primary" href="crime" target="_blank">Check it out</a>
-		</div>
-		<div class="col-md-4">
-			<h3>example-express</h3>
-			<p>I created a basic structure for a website using Nodejs and Express combined with a postgreSQL database for storing data. The project is open source aiming to help beginners with developing a Nodejs website</p>
-			<a class="btn btn-primary" href="https://github.com/awocallaghan/example-express" target="_blank">Check it out</a>
-		</div>
-	</div>
-</div>
-
-<div id="blog" class="content-header">
-	<div class="container">
-		<h2>Blog posts</h2>
-	</div>
-</div>
-<div class="content container">
-	<ul class="posts">
-		{% for post in site.posts %}
-			<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-		{% endfor %}
-	</ul>
-</div>
-
-<div id="contact" class="content-header">
-	<div class="container">
-		<h2>Contact</h2>
-	</div>
-</div>
-<div class="content container">
-	<p>Send me an email via the following form:</p>
-	<script type="text/javascript" src="http://form.jotformeu.com/jsform/52486491343359"></script>
-</div>
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<ul class="pager">
+    {% if paginator.previous_page %}
+    <li class="previous">
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    </li>
+    {% endif %}
+    {% if paginator.next_page %}
+    <li class="next">
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
