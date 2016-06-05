@@ -3,6 +3,16 @@ layout: page
 description: "Computer Science undergraduate"
 ---
 
+<!--
+<ul>
+{% for module in site.modules %}
+<li>
+  <a href="{{ module.url | prepend: site.baseurl }}"> {{ module.title }}</a>
+</li>
+{% endfor %}
+</ul>
+-->
+
 {% for post in paginator.posts %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
