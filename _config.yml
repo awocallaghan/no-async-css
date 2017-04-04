@@ -9,6 +9,19 @@ twitter_username: alexocallaghan
 github_username:  awocallaghan
 facebook_username:
 
+# Custom collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
 # Build settings
 gems: ['jekyll-paginate']
 markdown: kramdown

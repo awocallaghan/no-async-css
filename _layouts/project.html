@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<!-- Project Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading col-md-6">
+          <h1>{{ page.title }}</h1>
+          <h2 class="subheading">{{ page.description }}</h2>
+        </div>
+        {% if page.header-img %}
+          <div class="post-image col-md-6">
+            <img src="{{ page.header-bg-img }}" alt="{{ page.title }}" title="{{ page.title }}" />
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Project content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <section id="contents">
+          <h2>Contents</h2>
+          <ol>
+            {% for section in page.sections %}
+              <li><a href="{{ section.link }}">{{ section.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </section>
+        {{ content }}
+        {% include bottom-nav.html %}
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr />

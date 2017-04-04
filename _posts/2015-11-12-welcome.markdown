@@ -6,4 +6,6 @@ date:       2015-12-11 12:00:00
 author:     "Alex O'Callaghan"
 header-img: "img/home-bg.jpg"
 ---
-<p>Welcome to my personal website & blog powered by Jekyll and Github pages.</p>
+Welcome to my personal website and blog!
+
+This website is hosted by [GitHub pages](https://pages.github.com/) and powered by [Jekyll](https://jekyllrb.com/). Get the website source code from the Git repository at [awocallaghan/awocallaghan.github.io](https://github.com/awocallaghan/awocallaghan.github.io).

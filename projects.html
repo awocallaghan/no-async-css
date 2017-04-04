@@ -12,95 +12,31 @@ header-img: "img/home-bg.jpg"
   Most of the code can be found on my
   <a href="https://github.com/awocallaghan" target="_blank">GitHub account</a>,
   including this
-  <a href="https://github.com/awocallaghan/awocallaghan.github.io" target="_blank">site</a>.
+  <a href="https://github.com/awocallaghan/awocallaghan.github.io" target="_blank">website</a> itself.
 </p>
 
-<div class="post-preview">
-    <a target="_blank" href="https://github.com/awocallaghan/footyfeeds-angular">
-        <h2 class="post-title">
-          FootyFeeds
-        </h2>
-        <h3 class="post-subtitle">
-          Football news aggregator using Nodejs
-        </h3>
-        <em>Javascript, nodejs, AngularJS, Express, postgreSQL, HTML, CSS</em>
+{% assign projects = site.projects | sort: 'date' %}
+{% for project in projects reversed %}
+  <div class="post-preview">
+    {% if project.external %}
+      {% assign url = project.external %}
+      {% assign target = '_blank' %}
+    {% else %}
+      {% assign url = project.url %}
+      {% assign target = '_self' %}
+    {% endif %}
+    <a href="{{ url }}" target="{{ target }}">
+      <h2 class="post-title">
+        {{ project.title }}
+      </h2>
+      <h3 class="post-subtitle">
+        {{ project.description }}
+      </h3>
+      <em>
+        {{ project.tags | join: ', ' }}
+      </em>
     </a>
-</div>
-<div class="post-preview">
-  <a target="_blank" href="https://www.npmjs.com/package/rss-combiner">
-    <h2 class="post-title">
-      rss-combiner
-    </h2>
-    <h3 class="post-subtitle">
-      NPM package for combining RSS feeds
-    </h3>
-    <em>Javascript, Node, npm</em>
-  </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="https://github.com/awocallaghan/maths-problems">
-        <h2 class="post-title">
-          maths-problems.js
-        </h2>
-        <h3 class="post-subtitle">
-          npm package for generating and marking random maths questions
-        </h3>
-        <em>Javascript, nodejs, maths</em>
-    </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="https://github.com/awocallaghan/kickups">
-        <h2 class="post-title">
-          kickups
-        </h2>
-        <h3 class="post-subtitle">
-          Simple HTML5 game using the Phaser.io framework
-        </h3>
-        <em>Javascript, Phaser, HTML5</em>
-    </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="https://github.com/awocallaghan/example-express">
-        <h2 class="post-title">
-          example-express
-        </h2>
-        <h3 class="post-subtitle">
-          A basic structure for a website powered by Nodejs and Express
-        </h3>
-        <em>Javascript, nodejs, Express, postgreSQL, HTML, CSS</em>
-    </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="https://github.com/awocallaghan/Spirograph">
-        <h2 class="post-title">
-          Hypocycloid generator
-        </h2>
-        <h3 class="post-subtitle">
-          Java GUI for generating hypocycloid patterns
-        </h3>
-        <em>Java, maths</em>
-    </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="http://audbern.co.uk">
-        <h2 class="post-title">
-          Audbern Ltd website design
-        </h2>
-        <h3 class="post-subtitle">
-          Design and implemented a website with a basic CMS
-        </h3>
-        <em>HTML, CSS, Javascript (jQuery)</em>
-    </a>
-</div>
-<div class="post-preview">
-    <a target="_blank" href="/crime">
-        <h2 class="post-title">
-          Crime map of London
-        </h2>
-        <h3 class="post-subtitle">
-          Interactive map of crime in London in 2013 using Google Maps API
-        </h3>
-        <em>Javascript, HTML, CSS, Google Maps API</em>
-    </a>
-</div>
-<hr>
+  </div>
+{% endfor %}
+
+<hr />
