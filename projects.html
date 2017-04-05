@@ -33,6 +33,10 @@ header-img: "img/home-bg.jpg"
         {{ project.description }}
       </h4>
       <em>
+        {{ project.date | date: '%B %Y' }}
+      </em>
+      <br />
+      <em>
         {{ project.tags | join: ', ' }}
       </em>
     </a>

@@ -150,6 +150,11 @@ hr.small {
   .intro-header .page-heading {
     padding: 150px 0;
   }
+  .intro-header.intro-header--small .site-heading,
+  .intro-header.intro-header--small .post-heading,
+  .intro-header.intro-header--small .page-heading {
+    padding: 125px 0 0;
+  }
 }
 .intro-header .site-heading,
 .intro-header .page-heading {
@@ -341,6 +346,7 @@ form .row:first-child .floating-label-form-group {
   color: white;
 }
 .pager {
+  list-style: none;
   margin: 20px 0 0;
 }
 .pager li > a,

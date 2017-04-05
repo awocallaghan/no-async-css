@@ -5,3 +5,4 @@ tags: ['JavaScript', 'HTML', 'CSS', 'Google Maps API']
 date: 01/01/2014
 external: alexocallaghan.com/crime
 ---
+Redirecting...
