@@ -60,16 +60,14 @@ hr.small {
 
 .navbar-custom {
 	background: white;
-	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	z-index: 3;
 	.sans-serif;
 	.navbar-brand {
+		color: #333;
 		font-weight: 800;
 	}
-	.nav {
+	.navbar-nav {
 		li {
 			a {
 				text-transform: uppercase;
@@ -82,6 +80,9 @@ hr.small {
 	@media only screen and (min-width: 768px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
+		.navbar-toggler-icon {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+		}
 		.navbar-brand {
 			color: white;
 			padding: 20px;
@@ -90,7 +91,7 @@ hr.small {
 				color: @white-faded;
 			}
 		}
-		.nav {
+		.navbar-nav {
 			li {
 				a {
 					color: white;
@@ -118,7 +119,7 @@ hr.small {
 		&.is-fixed {
 			/* when the user scrolls down, we hide the header right above the viewport */
 			position: fixed;
-			top: -61px;
+			top: -87px;
 			background-color: fade(white, 90%);
 			border-bottom: 1px solid darken(white, 5%);
 			-webkit-transition: -webkit-transform 0.3s;
@@ -131,7 +132,7 @@ hr.small {
 					color: @brand-primary;
 				}
 			}
-			.nav {
+			.navbar-nav {
 				li {
 					a {
 						color: @gray-dark;

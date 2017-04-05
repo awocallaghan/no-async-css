@@ -1,3 +1,9 @@
+/*!
+ * Alex O'Callaghan Jekyll blog v1.0.0 (http://alexocallaghan.com)
+ * Copyright 2017 Alex O'Callaghan
+ * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
@@ -150,11 +156,6 @@ hr.small {
   .intro-header .page-heading {
     padding: 150px 0;
   }
-  .intro-header.intro-header--small .site-heading,
-  .intro-header.intro-header--small .post-heading,
-  .intro-header.intro-header--small .page-heading {
-    padding: 125px 0 0;
-  }
 }
 .intro-header .site-heading,
 .intro-header .page-heading {
@@ -168,8 +169,8 @@ hr.small {
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
   font-size: 24px;
-  line-height: 1.1;
-  display: block;
+  line-height: 1.1,
+			display: block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
@@ -346,7 +347,6 @@ form .row:first-child .floating-label-form-group {
   color: white;
 }
 .pager {
-  list-style: none;
   margin: 20px 0 0;
 }
 .pager li > a,
