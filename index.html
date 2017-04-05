@@ -3,38 +3,16 @@ layout: page
 description: "Computer Science undergraduate"
 ---
 
+<h2>About me</h2>
 <p>
   I am Alex O'Callaghan and this is my personal website where I share blog posts and recent projects I have completed. I am a software developer focusing on full stack web development completing a BSc Computer Science at <a href="https://southampton.ac.uk" target="_blank">University of Southampton</a>.
 </p>
+<p>
+  <a class="btn btn-secondary m-x-2" href="/about">More info</a>
+  <a class="btn btn-primary m-x-2" href="/projects">Browse project portfolio</a>
+</p>
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
-</div>
-<hr>
-{% endfor %}
+<hr />
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
+<h2>Blog posts</h2>
+{% include posts.html %}

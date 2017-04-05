@@ -26,12 +26,12 @@ header-img: "img/home-bg.jpg"
       {% assign target = '_self' %}
     {% endif %}
     <a href="{{ url }}" target="{{ target }}">
-      <h2 class="post-title">
+      <h3 class="post-title">
         {{ project.title }}
-      </h2>
-      <h3 class="post-subtitle">
-        {{ project.description }}
       </h3>
+      <h4 class="post-subtitle">
+        {{ project.description }}
+      </h4>
       <em>
         {{ project.tags | join: ', ' }}
       </em>

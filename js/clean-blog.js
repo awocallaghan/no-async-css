@@ -1009,7 +1009,7 @@ $(document).ready(function() {
 });
 
 // responsive embed videos
-$(document).ready(function () { 
+$(document).ready(function () {
     $('iframe[src*="youtube.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
 	$('iframe[src*="youtube.com"]').addClass('embed-responsive-item');
     $('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');
@@ -1031,6 +1031,7 @@ $(function() {
 jQuery(document).ready(function($) {
     var MQL = 1170;
 
+
     //primary navigation slide-in effect
     if ($(window).width() > MQL) {
         var headerHeight = $('.navbar-custom').height();
@@ -1039,18 +1040,19 @@ jQuery(document).ready(function($) {
             },
             function() {
                 var currentTop = $(window).scrollTop();
+                var navbar = $('.navbar-custom');
                 //check if user is scrolling up
                 if (currentTop < this.previousTop) {
                     //if scrolling up...
-                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
-                        $('.navbar-custom').addClass('is-visible');
+                    if (currentTop > 0 && navbar.hasClass('is-fixed')) {
+                        navbar.addClass('is-visible');
                     } else {
-                        $('.navbar-custom').removeClass('is-visible is-fixed');
+                        navbar.removeClass('is-visible is-fixed');
                     }
                 } else {
                     //if scrolling down...
-                    $('.navbar-custom').removeClass('is-visible');
-                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+                    navbar.removeClass('is-visible');
+                    if (currentTop > headerHeight && !navbar.hasClass('is-fixed')) navbar.addClass('is-fixed');
                 }
                 this.previousTop = currentTop;
             });
