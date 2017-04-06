@@ -9,7 +9,7 @@ header-img: "img/home-bg.jpg"
 
 For a basic introduction to Gulp see my [earlier blog post](/2016/07/16/gulp/). The following example uses the npm package [gulp-sass](https://github.com/dlmanning/gulp-sass).
 
-# gulpfile.js
+## gulpfile.js
 
 ```javascript
 'use strict';

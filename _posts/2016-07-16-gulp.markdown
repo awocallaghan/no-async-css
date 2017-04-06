@@ -6,13 +6,13 @@ date:       2016-07-16 12:00:00
 author:     "Alex O'Callaghan"
 header-img: "img/home-bg.jpg"
 ---
-# What is it?
+## What is it?
 
 Gulp is a Node npm package that allows for automation of tasks in order to remove common time-consuming processes from developer’s workflow. Gulp is platform independent with plugins/integration available for all popular IDEs,. It runs within the JavaScript runtime environment Node.js allowing for easy use of packages from the npm ecosystem which is the “largest ecosystem of open-source libraries in the world”. Furthermore, there are many open-source packages created for integration with Gulp with the prefix ‘gulp-’.
 
 Common tasks automated with Gulp include concatenation, minification, live reloading page on code changes and running tests/code coverage. Using a build system like Gulp is a must if we want to use more advanced language features which require compiling/transpiling such as SASS/LESS (CSS preprocessors) or TypeScript/Babel/Browserify (JavaScript language extensions). See the full list of [Gulp recipes](https://github.com/gulpjs/gulp/tree/master/docs/recipes#recipes) of use cases with code examples.
 
-# Installation
+## Installation
 
 Gulp requires [installing Node and npm](https://nodejs.org/en/download/). Once installed and the npm command is available in your command line install the Gulp command line interface:
 
@@ -40,7 +40,7 @@ Finally the default gulp task can be run and nothing will happen:
 
     gulp
 
-# Tasks
+## Tasks
 
 When no task name is given to the gulp command the ‘default’ task is executed. Tasks can also be created with names:
 
@@ -74,7 +74,7 @@ In addition, tasks can depend on other tasks:
   });
 ```
 
-# Plugins
+## Plugins
 
 The open source plugins for Gulp available are what makes it so powerful. A useful trick for managing loading Gulp plugins is the plugin [gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins).
 
@@ -90,7 +90,7 @@ Then you can add the following to your gulpfile.js:
 
 The plugins object will now contain all Gulp plugins which are installed as dev dependencies in your ‘package.json’ (ie. all ‘--save-dev’ plugins which begin with ‘gulp-’). For example if you had the ‘gulp-concat’ plugin installed for concatenating files, it would be accessible via the `plugins.concat()` function.
 
-# Useful links
+## Useful links
 
 - [Gulp.js](http://gulpjs.com)
 - [Node.js - JavaScript runtime environment](https://nodejs.org/en/)
