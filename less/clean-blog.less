@@ -80,8 +80,23 @@ hr.small {
 	@media only screen and (min-width: 768px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
+		-webkit-transition: background-color 0.3s;
+		-moz-transition: background-color 0.3s;
+		transition: background-color 0.3s;
+		/* Force Hardware Acceleration in WebKit */
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		.navbar-toggler {
+			border-color: transparent;
+		}
 		.navbar-toggler-icon {
-			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 		}
 		.navbar-brand {
 			color: white;
@@ -103,19 +118,6 @@ hr.small {
 				}
 			}
 		}
-	}
-	@media only screen and (min-width: 1170px) {
-		-webkit-transition: background-color 0.3s;
-		-moz-transition: background-color 0.3s;
-		transition: background-color 0.3s;
-		/* Force Hardware Acceleration in WebKit */
-		-webkit-transform: translate3d(0, 0, 0);
-		-moz-transform: translate3d(0, 0, 0);
-		-ms-transform: translate3d(0, 0, 0);
-		-o-transform: translate3d(0, 0, 0);
-		transform: translate3d(0, 0, 0);
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
 		&.is-fixed {
 			/* when the user scrolls down, we hide the header right above the viewport */
 			position: fixed;
@@ -125,6 +127,9 @@ hr.small {
 			-webkit-transition: -webkit-transform 0.3s;
 			-moz-transition: -moz-transform 0.3s;
 			transition: transform 0.3s;
+			.navbar-toggler-icon {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+			}
 			.navbar-brand {
 				color: @gray-dark;
 				&:hover,
@@ -397,6 +402,7 @@ form .row:first-child .floating-label-form-group {
 .pager {
 
 	margin: 20px 0 0;
+	list-style: none;
 
 	li {
 		> a,

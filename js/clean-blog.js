@@ -1028,8 +1028,26 @@ $(function() {
 });
 
 // Navigation Scripts to Show Header on Scroll-Up
+// Also update top offset when menu toggled
 jQuery(document).ready(function($) {
-    var MQL = 1170;
+    var MQL = 768;
+
+    // Update the offset on the top of navbar
+    // Offset must be equal to negative height of navbar
+    // When dropdown nav expanded, height of navbar changes
+    // Calculate this before content shown and set as -ve top value
+    $('.navbar-collapse').on('show.bs.collapse', function () {
+      var collapseNavbar = $(this);
+      var navbar = collapseNavbar.parents('nav.navbar');
+      if ($(window).width() > MQL && navbar.hasClass('is-fixed is-visible')) {
+        navbar.css('top', -(navbar.outerHeight() + collapseNavbar.height()));
+      }
+    });
+    // Reset top when collapsed
+    $('.navbar-collapse').on('hide.bs.collapse', function () {
+      var navbar = $(this).parents('nav.navbar');
+      navbar.css('top', '');
+    });
 
 
     //primary navigation slide-in effect
@@ -1048,6 +1066,7 @@ jQuery(document).ready(function($) {
                         navbar.addClass('is-visible');
                     } else {
                         navbar.removeClass('is-visible is-fixed');
+                        navbar.css('top', '');
                     }
                 } else {
                     //if scrolling down...

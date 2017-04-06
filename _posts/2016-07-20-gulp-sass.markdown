@@ -1,0 +1,36 @@
+---
+layout:     post
+title:      "Compile SASS using Gulp"
+subtitle:   "Use gulp-sass package to compile sass"
+date:       2016-07-20 12:00:00
+author:     "Alex O'Callaghan"
+header-img: "img/home-bg.jpg"
+---
+
+For a basic introduction to Gulp see my [earlier blog post](/2016/07/16/gulp/). The following example uses the npm package [gulp-sass](https://github.com/dlmanning/gulp-sass).
+
+# gulpfile.js
+
+```javascript
+'use strict';
+
+/**
+ * Gulp tasks to compile SASS
+ * - sass = compile sass file in /sass/style.scss => /css/
+ * - sass:watch = wait for changes in /sass/ then run 'sass' task
+ */
+
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+
+gulp.task('sass', () => {
+  return gulp
+    .src('./src/sass/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/css'));
+});
+
+gulp.task('sass:watch', () => {
+  gulp.watch('./src/sass/**/*.scss', ['sass']);
+});
+```

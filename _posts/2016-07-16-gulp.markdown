@@ -29,10 +29,12 @@ Then install Gulp as a developer dependency:
 
 Gulp tasks are contained in a file called `gulpfile.js` located in the root folder of the project. Here is an example with an empty default task:
 
-    var gulp = require('gulp');
-    gulp.task('default', function() {
-      // default task code goes here
-    });
+```javascript
+  var gulp = require('gulp');
+  gulp.task('default', function() {
+    // default task code goes here
+  });
+```
 
 Finally the default gulp task can be run and nothing will happen:
 
@@ -42,31 +44,35 @@ Finally the default gulp task can be run and nothing will happen:
 
 When no task name is given to the gulp command the ‘default’ task is executed. Tasks can also be created with names:
 
-    var gulp = require('gulp');
+```javascript
+  var gulp = require('gulp');
 
-    gulp.task('css', function() {
-      // do something to the CSS
-    });
+  gulp.task('css', function() {
+    // do something to the CSS
+  });
+```
 
-And executed individually:
+And executed individually from the command line:
 
     gulp css
 
 In addition, tasks can depend on other tasks:
 
-    var gulp = require('gulp');
+```javascript
+  var gulp = require('gulp');
 
-    gulp.task('build', ['css', 'js'], function() {
-      console.log('Build complete!');
-    });
+  gulp.task('build', ['css', 'js'], function() {
+    console.log('Build complete!');
+  });
 
-    gulp.task('css', function() {
-      // do something to the CSS
-    });
+  gulp.task('css', function() {
+    // do something to the CSS
+  });
 
-    gulp.task('js', function() {
-      // do something with the JavaScript
-    });
+  gulp.task('js', function() {
+    // do something with the JavaScript
+  });
+```
 
 # Plugins
 
@@ -76,17 +82,19 @@ The open source plugins for Gulp available are what makes it so powerful. A usef
 
 Then you can add the following to your gulpfile.js:
 
-    var gulp = require('gulp');
-    var gulpLoadPlugins = require('gulp-load-plugins');
-    var plugins = gulpLoadPlugins();
+```javascript
+  var gulp = require('gulp');
+  var gulpLoadPlugins = require('gulp-load-plugins');
+  var plugins = gulpLoadPlugins();
+```
 
 The plugins object will now contain all Gulp plugins which are installed as dev dependencies in your ‘package.json’ (ie. all ‘--save-dev’ plugins which begin with ‘gulp-’). For example if you had the ‘gulp-concat’ plugin installed for concatenating files, it would be accessible via the `plugins.concat()` function.
 
 # Useful links
 
 - [Gulp.js](http://gulpjs.com)
-- [Node.js](https://nodejs.org/en/) - JavaScript runtime environment
-- [npm](https://npmjs.com) - JavaScript package manager
+- [Node.js - JavaScript runtime environment](https://nodejs.org/en/)
+- [npm - JavaScript package manager](https://npmjs.com)
 - [Gulp in Webstorm 9](https://blog.jetbrains.com/webstorm/2014/11/gulp-in-webstorm-9/)
-- [gulp-control](https://atom.io/packages/gulp-control) - Gulp plugin for Atom
+- [gulp-control - Gulp plugin for Atom](https://atom.io/packages/gulp-control)
 - [Gulp packages on npm](https://www.npmjs.com/search?q=gulp)
