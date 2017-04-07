@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -6,32 +9,43 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>http://alexocallaghan.com/</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
+    <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://alexocallaghan.com/about/</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
+    <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>http://alexocallaghan.com/blog/</loc>
+    <lastmod>2017-07-04T17:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  {% for post in site.posts %}
+    <url>
+      <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      <lastmod>{{ post.date | xml_escape }}</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  {% endfor %}
   <url>
     <loc>http://alexocallaghan.com/projects/</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
+    <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
+  {% for project in site.projects %}
+    {% if project.external == undefined %}
+      <url>
+        <loc>{{ project.url | prepend: site.baseurl | prepend: site.url }}</loc>
+        <lastmod>2017-07-04T17:30:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    {% endif %}
+  {% endfor %}
   <url>
-    <loc>http://alexocallaghan.com/2016/07/16/gulp/</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://alexocallaghan.com/2015/12/11/welcome/</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://alexocallaghan.com/projects/footyfeeds</loc>
-    <lastmod>2017-04-04T20:35:53+00:00</lastmod>
+    <loc>http://alexocallaghan.com/contact</loc>
+    <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
