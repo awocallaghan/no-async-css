@@ -7,6 +7,8 @@
 
 const PROJECTS_SELECTOR = '#projects';
 const PROJECT_SELECTOR = '.post-preview';
+const PROJECT_FILTERS_SELECTOR = '#projects-filters';
+const PROJECTS_COUNT_SELECTOR = '#projects-count';
 const PROJECTS_DATA = 'projects';
 const PROJECT_DATA = 'project';
 // Debug to console
@@ -23,8 +25,9 @@ $(function () {
       console.log('Successfully loaded projects data', data);
     }
     element.data(PROJECTS_DATA, data);
-    initFilters(element);
+    initFilters(element, data.projects);
     initProjects(element, data.projects);
+    initProjectCount(element, data.projects);
   }).fail(function (err) {
     console.error('Error loading project data', err);
     console.log(err.responseText);
@@ -32,7 +35,7 @@ $(function () {
 });
 
 // Setup the filter controls
-function initFilters (projectsElement) {
+function initFilters (projectsElement, projects) {
   let title = projectsElement.find('h2');
   // Add filter trigger link
   title.append('<a class="filter-toggler collapsed" data-toggle="collapse" href="#projects-filters"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>');
@@ -79,6 +82,9 @@ function filtersUpdated (event) {
 
   // Hide all the projects
   projectElements.hide();
+
+  // Count how many projects we show
+  let projectCount = 0;
 
   // Show project if it matches the filters
   projectElements.each(function (index) {
@@ -156,12 +162,31 @@ function filtersUpdated (event) {
     }
 
     // Show the project
-    if (showProject) projectElement.show();
+    if (showProject) {
+      projectElement.show();
+      projectCount += 1;
+    }
+
+    // Update shown projects count
+    if (index === projectElements.length - 1) {
+      updateProjectCount(projectCount);
+    }
   });
 }
 
 // Reset filters form + projects shown
 function resetFilters () {
-  $('#projects-filters form')[0].reset();
+  $(PROJECT_FILTERS_SELECTOR + ' form')[0].reset();
   filtersUpdated();
+}
+
+// Init project count text
+function initProjectCount (element, projects) {
+  element.find(PROJECT_FILTERS_SELECTOR).after('<span id="projects-count"></span>');
+  updateProjectCount(projects.length);
+}
+
+// Update project count text
+function updateProjectCount (count) {
+  $(PROJECTS_COUNT_SELECTOR).text(`Showing ${count} project${count !== 1 ? 's' : ''}:`);
 }
