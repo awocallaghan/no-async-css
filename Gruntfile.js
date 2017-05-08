@@ -55,9 +55,23 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    src: ['css/clean-blog.css', 'css/clean-blog.min.css', 'js/clean-blog.min.js']
+                    src: ['js/clean-blog.min.js']
                 }
             }
+        },
+        concat: {
+          options: {
+            banner: '<%= banner %>',
+            sourceMap: true,
+          },
+          css: {
+            src: ['css/bootstrap.min.css','css/tether.min.css','css/clean-blog.min.css','css/syntax.min.css','css/font-awesome.min.css','css/fonts.css'],
+            dest: 'css/style.min.css',
+          },
+          js: {
+            src: ['js/jquery.min.js','js/tether.min.js','js/bootstrap.min.js','js/clean-blog.min.js'],
+            dest: 'js/common.min.js',
+          },
         },
         watch: {
             scripts: {
@@ -82,9 +96,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['babel', 'uglify', 'less', 'usebanner']);
+    grunt.registerTask('default', ['babel', 'uglify', 'less', 'usebanner', 'concat']);
 
 };
