@@ -52,6 +52,9 @@ hr.small {
   z-index: 3;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.navbar-custom .container {
+  width: 100%;
+}
 .navbar-custom .navbar-brand {
   color: #333;
   font-weight: 800;
