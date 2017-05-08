@@ -25,7 +25,7 @@ layout: null
   {% for post in site.posts %}
     <url>
       <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
-      <lastmod>{{ post.date | xml_escape }}</lastmod>
+      <lastmod>{{ post.date }}</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   {% endfor %}
