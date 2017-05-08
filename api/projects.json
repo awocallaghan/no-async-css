@@ -1,0 +1,21 @@
+---
+layout: null
+---
+{
+  "projects": [
+    {% assign projects = site.projects | sort: 'date' %}
+    {% for project in projects reversed %}
+    {
+      "name": "{{ project.title }}",
+      "description": "{{ project.description }}",
+      {% if project.external == undefined %}
+        "url": "{{ project.url | prepend: site.baseurl | prepend: site.url }}",
+      {% else %}
+        "url": "{{ project.external }}",
+      {% endif %}
+      "tags": ["{{ project.tags | join: '","' }}"]
+    },
+    {% endfor %}
+    {}
+  ]
+}

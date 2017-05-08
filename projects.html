@@ -3,6 +3,7 @@ layout: page
 title: "Projects"
 description: "Cool stuff I've made"
 header-img: "img/home-bg.jpg"
+scripts: "/js/projects.min.js"
 ---
 
 <p>
@@ -15,32 +16,37 @@ header-img: "img/home-bg.jpg"
   <a href="https://github.com/awocallaghan/awocallaghan.github.io" target="_blank">website</a> itself.
 </p>
 
-{% assign projects = site.projects | sort: 'date' %}
-{% for project in projects reversed %}
-  <div class="post-preview">
-    {% if project.external %}
-      {% assign url = project.external %}
-      {% assign target = '_blank' %}
-    {% else %}
-      {% assign url = project.url %}
-      {% assign target = '_self' %}
-    {% endif %}
-    <a href="{{ url }}" target="{{ target }}">
-      <h3 class="post-title">
-        {{ project.title }}
-      </h3>
-      <h4 class="post-subtitle">
-        {{ project.description }}
-      </h4>
-      <em>
-        {{ project.date | date: '%B %Y' }}
-      </em>
-      <br />
-      <em>
-        {{ project.tags | join: ', ' }}
-      </em>
-    </a>
-  </div>
-{% endfor %}
+<div id="projects">
+  <h2>
+    Projects
+  </h2>
+  {% assign projects = site.projects | sort: 'date' %}
+  {% for project in projects reversed %}
+    <div class="post-preview">
+      {% if project.external %}
+        {% assign url = project.external %}
+        {% assign target = '_blank' %}
+      {% else %}
+        {% assign url = project.url %}
+        {% assign target = '_self' %}
+      {% endif %}
+      <a href="{{ url }}" target="{{ target }}">
+        <h3 class="post-title">
+          {{ project.title }}
+        </h3>
+        <h4 class="post-subtitle">
+          {{ project.description }}
+        </h4>
+        <em>
+          {{ project.date | date: '%B %Y' }}
+        </em>
+        <br />
+        <em>
+          {{ project.tags | join: ', ' }}
+        </em>
+      </a>
+    </div>
+  {% endfor %}
+</div>
 
 <hr />

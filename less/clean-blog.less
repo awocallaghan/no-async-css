@@ -468,3 +468,28 @@ img::-moz-selection {
 body {
 	webkit-tap-highlight-color: @brand-primary;
 }
+
+// -- Projects page
+.filter-toggler {
+	position: relative;
+	top: -.25em;
+	padding-left: 1em;
+	font-size: .5em;
+}
+.filter-toggler:link,
+.filter-toggler:visited,
+.filter-toggler.collapsed:active
+{
+	text-decoration: underline;
+	color: red;
+}
+.filter-toggler.collapsed:link,
+.filter-toggler.collapsed:visited,
+.filter-toggler.collapsed:active
+{
+	color: #404040;
+	text-decoration: none;
+}
+#projects-filters .btn {
+	margin: 2px;
+}

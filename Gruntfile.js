@@ -3,11 +3,26 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        babel: {
+          options: {
+            sourceMap: true,
+            presets: ['es2015']
+          },
+          dist: {
+            files: {
+              'js/projects.dist.js' : 'js/projects.js'
+            }
+          }
+        },
         uglify: {
             main: {
                 src: 'js/clean-blog.js',
                 dest: 'js/clean-blog.min.js'
-            }
+            },
+            projects: {
+              src: 'js/projects.dist.js',
+              dest: 'js/projects.min.js'
+            },
         },
         less: {
             expanded: {
@@ -63,12 +78,13 @@ module.exports = function(grunt) {
     });
 
     // Load the plugins.
+    grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
+    grunt.registerTask('default', ['babel', 'uglify', 'less', 'usebanner']);
 
 };
