@@ -62,6 +62,25 @@
   }
 </script>
 
+<!-- Load deferred CSS -->
+
+<noscript id="deferred-styles">
+  <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl }}" />
+</noscript>
+<script>
+  var loadDeferredStyles = function() {
+    var addStylesNode = document.getElementById("deferred-styles");
+    var replacement = document.createElement("div");
+    replacement.innerHTML = addStylesNode.textContent;
+    document.body.appendChild(replacement)
+    addStylesNode.parentElement.removeChild(addStylesNode);
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+  else window.addEventListener('load', loadDeferredStyles);
+</script>
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -77,7 +96,7 @@
   {% for script in page.scripts %}
     <script src="{{ script | prepend: site.baseurl }}"></script>
   {% endfor %}
-  
+
 {% endif %}
 <!-- Google Analytics -->
 <script>
