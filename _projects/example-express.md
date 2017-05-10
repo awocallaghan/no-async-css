@@ -2,7 +2,8 @@
 title: example-express
 description: A basic structure for a website using Express
 tags: ['JavaScript', 'NodeJS', 'Express', 'PostgreSQL', 'HTML', 'CSS']
-date: 01/01/2015
-external: https://github.com/awocallaghan/example-express
+date: 03/09/2015
 ---
-Redirecting...
+# About
+
+A example project setup for an [Express](https://expressjs.com/) application. Get the code on [GitHub](https://github.com/awocallaghan/example-express)

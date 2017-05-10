@@ -2,7 +2,10 @@
 title: Hypocycloid generator
 description: Java GUI for generating hypocycloid patterns
 tags: ['Java','Swing','Maths']
-date: 01/01/2014
-external: https://github.com/awocallaghan/Spirograph
+date: 21/10/2014
 ---
-Redirecting...
+# About
+
+I made a [hypocycloid](https://en.wikipedia.org/wiki/Hypocycloid) generator GUI using the Java Swing package as part of my first year Computer Science programming module. 
+
+The source code is available on [GitHub](https://github.com/awocallaghan/Spirograph).
