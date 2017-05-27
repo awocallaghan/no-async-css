@@ -2,7 +2,7 @@
   {% if post.header-img %}
   <div class="row">
     <div class="col-4">
-      <img class="img-fluid" src="{{ post.header-img | prepend: site.baseurl }}" alt="{{ post.title }}" />
+      <img class="img-fluid" src="/{{ post.header-img | prepend: site.baseurl }}" alt="{{ post.title }}" />
     </div>
     <div class="col-8">
   {% else %}
