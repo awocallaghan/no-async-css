@@ -2,15 +2,28 @@
 layout: default
 ---
 
+{% if layout.type == 'post' %}
+<div itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+{% endif %}
+
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+<header class="intro-header" style="background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.75)),url('{% if page.header-img %}/{{ page.header-img | prepend: site.baseurl }}{% else %}/{{ site.header-img | prepend: site.baseurl }}{% endif %}') #000; background-size: cover; background-position: center; background-attachment: fixed;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="site-heading">
-          <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+        <div class="{% if page.blog %}post-heading{% else %}site-heading{% endif %}">
+          <h1 itemprop="name headline">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+          {% if layout.type == 'post' %}
+            {% if page.subtitle %}
+              <h2 class="subheading">{{ page.subtitle }}</h2>
+            {% endif %}
+            <span class="meta">Posted by {% if page.author %}<span itemprop="author publisher" itemscope="itemscope" itemtype="http://schema.org/Person"><meta content="http://alexocallaghan.com" itemprop="url" /><span itemprop="name">{{ page.author }}</span></span>{% else %}{{ site.title }}{% endif %} on <span itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</span></span>
+          {% elsif layout.type == 'project' %}
+            <h2 class="subheading">{{ page.description }}
+          {% else %}
           <hr class="small">
           <span class="subheading">{{ page.description }}</span>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -18,12 +31,17 @@ layout: default
 </header>
 
 <!-- Main Content -->
-<div class="container">
+{% if layout.type == 'post' %}<article>{% endif %}
+<div id="content" class="container">
 	<div class="row justify-content-center">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-			{{ content }}
+      {{ content }}
 		</div>
 	</div>
 </div>
+{% if layout.type == 'post' %}</article>{% endif %}
 
+{% if layout.type == 'post' %}
+</div>
+{% endif %}
 <hr />

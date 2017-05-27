@@ -1,52 +1,15 @@
 ---
-layout: default
+layout: page
+type: 'project'
 ---
-
-{% if page.external %}
-<script type="text/javascript">
-  window.location = '{{ page.external }}';
-</script>
+{% if page.sections %}
+  <section id="contents">
+    <h2>Contents</h2>
+    <ol>
+      {% for section in page.sections %}
+        <li><a href="{{ section.link }}">{{ section.title }}</a></li>
+      {% endfor %}
+    </ol>
+  </section>
 {% endif %}
-
-<!-- Project Header -->
-<header class="intro-header intro-header--small" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-heading text-center">
-          <h1>{{ page.title }}</h1>
-          <h2 class="subheading">{{ page.description }}</h2>
-        </div>
-        {% if page.header-img %}
-          <div class="post-image col-md-6">
-            <img src="{{ page.header-bg-img }}" alt="{{ page.title }}" title="{{ page.title }}" />
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Project content -->
-<article>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        {% if page.sections %}
-        <section id="contents">
-          <h2>Contents</h2>
-          <ol>
-            {% for section in page.sections %}
-              <li><a href="{{ section.link }}">{{ section.title }}</a></li>
-            {% endfor %}
-          </ol>
-        </section>
-        {% endif %}
-        {{ content }}
-        {% include bottom-nav.html %}
-      </div>
-    </div>
-  </div>
-</article>
-
-<hr />
+{{ content }}

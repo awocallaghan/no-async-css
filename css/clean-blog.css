@@ -19,6 +19,9 @@ h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
+h2 {
+  margin-bottom: 1.5rem;
+}
 a {
   color: #404040;
 }
@@ -33,6 +36,9 @@ a img:focus {
 blockquote {
   color: #808080;
   font-style: italic;
+}
+hr {
+  display: block;
 }
 hr.small {
   max-width: 100px;
@@ -53,13 +59,21 @@ hr.small {
   color: #333;
   font-weight: 800;
 }
+@media only screen and (max-width: 991px) {
+  .navbar-custom .navbar-brand {
+    padding-left: 15px;
+  }
+}
 .navbar-custom .navbar-nav li a {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
 }
-@media only screen and (min-width: 768px) {
+.navbar-custom .navbar-nav li a:hover {
+  text-decoration: none;
+}
+@media only screen and (min-width: 992px) {
   .navbar-custom {
     background: transparent;
     border-bottom: 1px solid transparent;
@@ -90,12 +104,26 @@ hr.small {
     color: rgba(255, 255, 255, 0.8);
   }
   .navbar-custom .navbar-nav li a {
+    position: relative;
+    top: 10px;
     color: white;
     padding: 20px;
   }
   .navbar-custom .navbar-nav li a:hover,
   .navbar-custom .navbar-nav li a:focus {
     color: rgba(255, 255, 255, 0.8);
+  }
+  .navbar-custom .navbar-nav li a:after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    max-width: 25%;
+    transition: max-width 0.5s ease-in-out;
+    height: 2px;
+    background-color: white;
+  }
+  .navbar-custom .navbar-nav li a:hover:after {
+    max-width: 50%;
   }
   .navbar-custom.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
@@ -124,6 +152,9 @@ hr.small {
   .navbar-custom.is-fixed .navbar-nav li a:focus {
     color: #0085a1;
   }
+  .navbar-custom.is-fixed .navbar-nav li a:after {
+    background-color: #0085a1;
+  }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
     -webkit-transform: translate3d(0, 100%, 0);
@@ -133,11 +164,13 @@ hr.small {
     transform: translate3d(0, 100%, 0);
   }
 }
-.intro-header:after {
-  display: none;
+@media only screen and (min-width: 992px) {
+  .navbar-toggleable-md .navbar-collapse {
+    justify-content: flex-end;
+  }
 }
 .intro-header {
-  height: auto !important;
+  min-height: 10px;
   background: no-repeat center center;
   background-color: #808080;
   background-attachment: scroll;
@@ -168,6 +201,7 @@ hr.small {
 .intro-header .page-heading h1 {
   margin-top: 0;
   font-size: 50px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
 }
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
@@ -215,6 +249,14 @@ hr.small {
     font-size: 30px;
   }
 }
+#content {
+  display: block;
+}
+@media only screen and (max-width: 517px) {
+  #home-content {
+    text-align: center;
+  }
+}
 .post-preview > a {
   color: #404040;
 }
@@ -247,11 +289,6 @@ hr.small {
 .post-preview > .post-meta > a:focus {
   color: #0085a1;
   text-decoration: underline;
-}
-@media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
-    font-size: 36px;
-  }
 }
 .section-heading {
   font-size: 36px;

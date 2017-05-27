@@ -21,6 +21,8 @@ $(function () {
   var element = $(PROJECTS_SELECTOR);
 
   $.get('/api/projects.json', function (data) {
+    // Last project in array is an empty {}
+    data.projects = data.projects.slice(0, data.projects.length - 1);
     if (DEBUG) {
       console.log('Successfully loaded projects data', data);
     }

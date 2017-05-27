@@ -1,10 +1,10 @@
 ---
 layout:     post
 title:      "Compile SASS using Gulp"
-subtitle:   "Use gulp-sass package to compile sass"
+subtitle:   "Use the 'gulp-sass' npm package to compile SASS"
 date:       2016-07-20 12:00:00
 author:     "Alex O'Callaghan"
-header-img: "img/home-bg.jpg"
+header-img: "img/gulp-sass.png"
 ---
 
 For a basic introduction to Gulp see my [earlier blog post](/2016/07/16/gulp/). The following example uses the npm package [gulp-sass](https://github.com/dlmanning/gulp-sass).

@@ -21,6 +21,8 @@ $(function () {
   let element = $(PROJECTS_SELECTOR);
 
   $.get('/api/projects.json', function (data) {
+    // Last project in array is an empty {}
+    data.projects = data.projects.slice(0, data.projects.length - 1);
     if (DEBUG) {
       console.log('Successfully loaded projects data', data);
     }
@@ -154,7 +156,7 @@ function filtersUpdated (event) {
         }
       }
       if (DEBUG && !showProject) {
-        console.log(projectData[filterName], 'not matches filter:', filterValue);
+        console.log(projectData[filterName], 'does not match filter:', filterValue);
       } else if (DEBUG) {
         console.log(projectData[filterName], 'matches filter:', filterValue);
       }

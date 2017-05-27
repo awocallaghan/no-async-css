@@ -28,6 +28,9 @@ h6 {
 	.sans-serif;
 	font-weight: 800;
 }
+h2 {
+	margin-bottom: 1.5rem;
+}
 
 a {
 	color: @gray-dark;
@@ -49,6 +52,10 @@ blockquote {
 	font-style: italic;
 }
 
+hr {
+	// Undo hide
+	display: block;
+}
 hr.small {
 	max-width: 100px;
 	margin: 15px auto;
@@ -69,6 +76,9 @@ hr.small {
 	.navbar-brand {
 		color: #333;
 		font-weight: 800;
+		@media only screen and (max-width: 991px) {
+			padding-left: 15px;
+		}
 	}
 	.navbar-nav {
 		li {
@@ -77,10 +87,13 @@ hr.small {
 				font-size: 12px;
 				font-weight: 800;
 				letter-spacing: 1px;
+				&:hover {
+					text-decoration: none;
+				}
 			}
 		}
 	}
-	@media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 992px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
 		-webkit-transition: background-color 0.3s;
@@ -112,11 +125,25 @@ hr.small {
 		.navbar-nav {
 			li {
 				a {
+					position: relative;
+					top: 10px;
 					color: white;
 					padding: 20px;
 					&:hover,
 					&:focus {
 						color: @white-faded;
+					}
+					&:after {
+						content: '';
+						display: block;
+						margin: 0 auto;
+						max-width: 25%;
+						transition: max-width 0.5s ease-in-out;
+						height: 2px;
+						background-color: white;
+					}
+					&:hover:after {
+						max-width: 50%;
 					}
 				}
 			}
@@ -148,6 +175,9 @@ hr.small {
 						&:focus {
 							color: @brand-primary;
 						}
+						&:after {
+							background-color: @brand-primary;
+						}
 					}
 				}
 			}
@@ -162,13 +192,16 @@ hr.small {
 		}
 	}
 }
+// Right align nav items on desktop
+@media only screen and (min-width: 992px) {
+	.navbar-toggleable-md .navbar-collapse {
+		justify-content: flex-end;
+	}
+}
 
 // Header
-.intro-header:after {
-	display: none;
-}
 .intro-header {
-	height: auto !important;
+	min-height: 10px;
 	background: no-repeat center center;
 	background-color: @gray;
 	background-attachment: scroll;
@@ -190,6 +223,7 @@ hr.small {
 		h1 {
 			margin-top: 0;
 			font-size: 50px;
+			text-shadow: 2px 2px rgba(0,0,0,0.4);
 		}
 		.subheading {
 			font-size: 24px;
@@ -240,6 +274,17 @@ hr.small {
 	}
 }
 
+// Content
+#content {
+	display: block;
+}
+// Home page content
+@media only screen and (max-width: 517px) {
+	#home-content {
+		text-align: center;
+	}
+}
+
 // Post Preview Pages
 
 .post-preview {
@@ -273,13 +318,6 @@ hr.small {
 			&:focus {
 				color: @brand-primary;
 				text-decoration: underline;
-			}
-		}
-	}
-	@media only screen and (min-width: 768px) {
-		> a {
-			> .post-title {
-				font-size: 36px;
 			}
 		}
 	}

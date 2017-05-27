@@ -1,4 +1,5 @@
-#Alex O'Callaghan personal website
+Alex O'Callaghan personal website
+---
 
 My personal website/blog powered by Jekyll and GitHub pages.
 

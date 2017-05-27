@@ -76,14 +76,14 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['js/clean-blog.js'],
-                tasks: ['uglify'],
+                tasks: ['uglify','usebanner','concat'],
                 options: {
                     spawn: false,
                 },
             },
             less: {
                 files: ['less/*.less'],
-                tasks: ['less'],
+                tasks: ['less','concat'],
                 options: {
                     spawn: false,
                 }
