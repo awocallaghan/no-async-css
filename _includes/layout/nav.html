@@ -9,25 +9,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
+        <li class="nav-item {% if page.activePage == "index" %}active{% endif %}">
           <a href="{{ site.baseurl }}/">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if page.activePage == "about" %}active{% endif %}">
           <a href="{{ site.baseurl }}/about">
             About
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if page.activePage == "blog" %}active{% endif %}">
           <a href="{{ site.baseurl }}/blog">
             Blog
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if page.activePage == "projects" or layout.activePage == "projects" %}active{% endif %}">
           <a href="{{ site.baseurl }}/projects">
             Projects
           </a>
         </li>
-        <li>
+        <li class="nav-item {% if page.activePage == "contact" %}active{% endif %}">
           <a href="{{ site.baseurl }}/contact">
             Contact
             </a>

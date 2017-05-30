@@ -74,19 +74,26 @@ module.exports = function(grunt) {
           },
         },
         watch: {
-            scripts: {
+            common: {
                 files: ['js/clean-blog.js'],
                 tasks: ['uglify','usebanner','concat'],
                 options: {
                     spawn: false,
                 },
             },
+            projects: {
+              files: ['js/projects.js'],
+              tasks: ['babel', 'uglify'],
+              options: {
+                spawn: false,
+              },
+            },
             less: {
                 files: ['less/*.less'],
                 tasks: ['less','concat'],
                 options: {
                     spawn: false,
-                }
+                },
             },
         },
     });

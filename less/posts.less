@@ -1,0 +1,93 @@
+// Post Preview Pages
+.post-preview {
+	.post-preview-img {
+		text-align: center;
+		img {
+			max-width: 75%;
+			cursor: pointer;
+			@media only screen and (max-width: 991px) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+	@media only screen and (max-width: 991px) {
+		.post-preview-content {
+			text-align: center;
+		}
+	}
+	a {
+		color: @gray-dark;
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			color: @brand-primary;
+		}
+		> .post-title {
+			font-size: 30px;
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+		> .post-subtitle {
+			margin: 0;
+			font-weight: 300;
+			margin-bottom: 10px;
+		}
+	}
+	.post-meta {
+		color: @gray;
+		font-size: 18px;
+		font-style: italic;
+		margin-top: 0;
+		> a {
+			text-decoration: none;
+			color: @gray-dark;
+			&:hover,
+			&:focus {
+				color: @brand-primary;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+// Pager Styling
+.pager {
+	margin: 20px 0 0;
+	list-style: none;
+
+	li {
+		> a,
+		> span {
+			.sans-serif;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			padding: 10px 5px;
+			background-color: white;
+			border-radius: 0;
+			@media only screen and (min-width: 768px) {
+				font-size: 14px;
+				padding: 15px 25px;
+			}
+		}
+
+		> a:hover,
+		> a:focus {
+			color: white;
+			background-color: @brand-primary;
+			border: 1px solid @brand-primary;
+		}
+	}
+
+	.disabled {
+		> a,
+		> a:hover,
+		> a:focus,
+		> span {
+			color: @gray;
+			background-color: @gray-dark;
+			cursor: not-allowed;
+		}
+	}
+}

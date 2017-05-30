@@ -1,0 +1,27 @@
+// -- Highlight Color Customization
+
+::-moz-selection {
+	color: white;
+	text-shadow: none;
+	background: @brand-primary;
+}
+
+::selection {
+	color: white;
+	text-shadow: none;
+	background: @brand-primary;
+}
+
+img::selection {
+	color: white;
+	background: transparent;
+}
+
+img::-moz-selection {
+	color: white;
+	background: transparent;
+}
+
+body {
+	webkit-tap-highlight-color: @brand-primary;
+}

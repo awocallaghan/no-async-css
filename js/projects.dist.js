@@ -42,7 +42,7 @@ function initFilters(projectsElement, projects) {
   // Add filter trigger link
   title.append('<a class="filter-toggler collapsed" data-toggle="collapse" href="#projects-filters"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>');
   // Add filter toggleable content
-  title.after('<div id="projects-filters" class="collapse"><form class="row"><div class="col-xs-12 col-sm-6"><div class="form-group"><label for="search">Search</label><input type="text" class="form-control" name="search" placeholder="Some text..." /></div><div class="form-group"><label for="tags">Tags</label><select class="form-control" multiple name="tags"><option selected value>All</option><option value="JavaScript">JavaScript</option><option value="PHP">PHP</option><option value="Java">Java</option></select></div></div><div class="col-xs-12 col-sm-6"><button class="btn btn-primary" role="submit">Update</button><a class="btn btn-secondary" onclick="resetFilters()" href="#projects-filters">Reset</a></div></form></div>');
+  title.after('<div id="projects-filters" class="collapse"><form class="row"><div class="col-12"><div class="form-group"><label for="search">Search</label><input type="text" class="form-control" name="search" placeholder="Some text..." /></div><div class="form-group"><label for="tags">Tags</label><select class="form-control" multiple name="tags"><option selected value>All</option><option value="JavaScript">JavaScript</option><option value="PHP">PHP</option><option value="Java">Java</option></select></div></div><div class="col-12"><button class="btn btn-primary" role="submit">Update</button><a class="btn btn-secondary" onclick="resetFilters()" href="#projects-filters">Reset</a></div></form></div>');
   // Add handling on filter change
   $('#projects-filters form').on('submit', filtersUpdated);
 }
@@ -155,7 +155,7 @@ function filtersUpdated(event) {
         }
       }
       if (DEBUG && !showProject) {
-        console.log(projectData[filterName], 'not matches filter:', filterValue);
+        console.log(projectData[filterName], 'does not match filter:', filterValue);
       } else if (DEBUG) {
         console.log(projectData[filterName], 'matches filter:', filterValue);
       }

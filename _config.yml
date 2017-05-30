@@ -28,4 +28,4 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","js/bootstrap.min.js","js/clean-blog.js","js/clean-blog.min.js","js/jquery.js","js/jquery.min.js","js/tether.min.js"]
