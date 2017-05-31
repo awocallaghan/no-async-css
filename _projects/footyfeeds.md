@@ -1,7 +1,8 @@
 ---
 title: FootyFeeds
 description: RSS News aggregator
-tags: ['JavaScript', 'NodeJS', 'AngularJS', 'Express', 'PostgreSQL', 'RSS', 'HTML', 'CSS']
+tags: ['JavaScript', 'Node.js', 'Angular', 'Express', 'PostgreSQL', 'RSS', 'HTML', 'CSS']
+type: personal
 date: 01/01/2016
 sections:
   - link: "#project-summary"

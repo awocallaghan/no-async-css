@@ -65,7 +65,7 @@
 <!-- Load deferred CSS -->
 
 <noscript id="deferred-styles">
-  <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl | prepend: site.url }}" />
 </noscript>
 <script>
   var loadDeferredStyles = function() {
@@ -89,12 +89,12 @@
 <![endif]-->
 
 <!-- Common JavaScript -->
-<script src="{{ "/js/common.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/common.min.js " | prepend: site.baseurl | prepend: site.url }}"></script>
 
 {% if page.scripts %}
 <!-- Custom JavaScript per page -->
   {% for script in page.scripts %}
-    <script src="{{ script | prepend: site.baseurl }}"></script>
+    <script src="{{ script | prepend: site.baseurl | prepend: site.url }}"></script>
   {% endfor %}
 
 {% endif %}

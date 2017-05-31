@@ -1,7 +1,8 @@
 ---
 title: example-express
 description: A basic structure for a website using Express
-tags: ['JavaScript', 'NodeJS', 'Express', 'PostgreSQL', 'HTML', 'CSS']
+tags: ['JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'HTML', 'CSS']
+type: personal
 date: 03/09/2015
 ---
 # About

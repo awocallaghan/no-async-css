@@ -4,6 +4,7 @@ title:      "Welcome to my Jekyll blog"
 subtitle:   "First post on my new website"
 date:       2015-12-11 12:00:00
 author:     "Alex O'Callaghan"
+description: The first post on my new Jekyll blog
 ---
 Welcome to my personal website and blog!
 

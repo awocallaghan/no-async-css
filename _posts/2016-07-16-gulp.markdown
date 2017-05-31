@@ -4,7 +4,8 @@ title:      "Gulp: JavaScript build automation"
 subtitle:   "Overview of Gulp.js"
 date:       2016-07-16 12:00:00
 author:     "Alex O'Callaghan"
-header-img: "img/gulp.png"
+header-img: "/img/gulp.png"
+description: An overview of the JavaScript automation library Gulp
 ---
 ## What is it?
 

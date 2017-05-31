@@ -2,6 +2,7 @@
 title: kickups
 description: HTML5 game using Phaser.io framework
 tags: ['JavaScript', 'Phaser.io', 'HTML5']
+type: personal
 date: 07/10/2015
 ---
 # About

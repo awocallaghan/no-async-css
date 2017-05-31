@@ -1,7 +1,8 @@
 ---
 title: rss-combiner
 description: npm package for combining RSS feeds
-tags: ['JavaScript', 'NodeJS', 'npm', 'rss']
+tags: ['JavaScript', 'Node.js', 'npm', 'RSS']
+type: personal
 date: 01/01/2016
 sections:
   - link: "#about"

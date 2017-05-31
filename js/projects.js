@@ -8,6 +8,8 @@
 const PROJECTS_SELECTOR = '#projects';
 const PROJECT_SELECTOR = '.post-preview';
 const PROJECT_FILTERS_SELECTOR = '#projects-filters';
+const PROJECT_FILTERS_HTML = '/html/project-filters.html';
+const PROJECT_FILTERS_NUM_TYPES = 3; // number of project types
 const PROJECTS_COUNT_SELECTOR = '#projects-count';
 const PROJECTS_DATA = 'projects';
 const PROJECT_DATA = 'project';
@@ -39,12 +41,16 @@ $(function () {
 // Setup the filter controls
 function initFilters (projectsElement, projects) {
   let title = projectsElement.find('h2');
-  // Add filter trigger link
-  title.append('<a class="filter-toggler collapsed" data-toggle="collapse" href="#projects-filters"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>');
-  // Add filter toggleable content
-  title.after('<div id="projects-filters" class="collapse"><form class="row"><div class="col-12"><div class="form-group"><label for="search">Search</label><input type="text" class="form-control" name="search" placeholder="Some text..." /></div><div class="form-group"><label for="tags">Tags</label><select class="form-control" multiple name="tags"><option selected value>All</option><option value="JavaScript">JavaScript</option><option value="PHP">PHP</option><option value="Java">Java</option></select></div></div><div class="col-12"><button class="btn btn-primary" role="submit">Update</button><a class="btn btn-secondary" onclick="resetFilters()" href="#projects-filters">Reset</a></div></form></div>');
-  // Add handling on filter change
-  $('#projects-filters form').on('submit', filtersUpdated);
+  $.get(PROJECT_FILTERS_HTML, function (html) {
+    // Add filter trigger link
+    title.append('<a class="filter-toggler collapsed" data-toggle="collapse" href="#projects-filters"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>');
+    // Add filter toggleable content
+    title.after(html);
+    // Add handling on filter change
+    $('#projects-filters form').on('submit', filtersUpdated);
+  }).fail(function (err) {
+    console.error('Unable to get project filters template', err);
+  });
 }
 
 // Tag each project element with its index
@@ -67,15 +73,25 @@ function filtersUpdated (event) {
     if (item.value && item.value.length > 0) {
       // Property with multiple values = array
       if (!obj.hasOwnProperty(item.name)) {
+        // Simply store value if doesn't exist
         obj[item.name] = item.value;
       } else if (obj[item.name].constructor === Array) {
+        // Add value to array if there's an existing array
         obj[item.name].push(item.value);
       } else {
+        // Create an array if existing single value
         obj[item.name] = [ obj[item.name], item.value ];
       }
     }
     return obj;
   }, {});
+
+  // Check if all types are enabled, if so don't bother filtering by type
+  if (filters.hasOwnProperty('type') && filters.type.length === PROJECT_FILTERS_NUM_TYPES) {
+    delete filters.type;
+  }
+
+  // Create array of filter keys minus 'search' filter
   let filterKeys = Object.keys(filters).filter(function (key) {
     return key !== 'search';
   });

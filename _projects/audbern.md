@@ -2,6 +2,7 @@
 title: Audbern Ltd website
 description: Website design and implementation using a PHP CMS
 tags: ['Web design', 'HTML', 'CSS', 'jQuery', 'PHP']
+type: work
 date: 01/01/2013
 sections:
   - link: '#project-summary'

@@ -1,7 +1,8 @@
 ---
 title: Student video analytics
 description: Vue.js/D3 data visualisation to aid university lecturers
-tags: ['JavaScript', 'Vue.js', 'D3', 'Express', 'RethinkDB']
+tags: ['JavaScript', 'Node.js', 'Vue.js', 'D3', 'Express', 'RethinkDB']
+type: edu
 date: 02/04/2017
 sections:
  - link: "#project-summary"

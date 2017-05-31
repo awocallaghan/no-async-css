@@ -8,12 +8,9 @@ layout: null
     {
       "name": "{{ project.title }}",
       "description": "{{ project.description }}",
-      {% if project.external == undefined %}
-        "url": "{{ project.url | prepend: site.baseurl | prepend: site.url }}",
-      {% else %}
-        "url": "{{ project.external }}",
-      {% endif %}
-      "tags": ["{{ project.tags | join: '","' }}"]
+      "url": "{{ project.url | prepend: site.baseurl | prepend: site.url }}",
+      "tags": ["{{ project.tags | join: '","' }}"],
+      "type": "{{ project.type }}"
     },
     {% endfor %}
     {}
