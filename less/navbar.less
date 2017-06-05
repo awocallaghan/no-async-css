@@ -63,26 +63,36 @@
 					color: white;
 					padding: 20px;
 					text-decoration: none;
+					transition: opacity 0.3s linear;
+					opacity: 0.8;
 					&:hover,
 					&:focus {
 						color: @white-faded;
+						opacity: 1;
 					}
 					&:after {
 						content: '';
 						display: block;
 						margin: 0 auto;
 						max-width: 25%;
-						transition: max-width 0.5s ease-in-out;
+						opacity: 0.8;
+						transition: max-width 0.5s ease-in-out, opacity 0.3s ease-in-out;
 						height: 2px;
 						background-color: white;
 					}
 					&:hover:after {
 						max-width: 50%;
+						opacity: 1;
 					}
 				}
 				// Active nav item underline
-				&.active a:after {
-					background-color: @brand-primary;
+				&.active a {
+					opacity: 1;
+
+					&:after {
+						background-color: @brand-primary;
+						opacity: 1;
+					}
 				}
 			}
 		}
