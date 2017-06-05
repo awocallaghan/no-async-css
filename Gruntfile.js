@@ -10,7 +10,17 @@ module.exports = function(grunt) {
           },
           dist: {
             files: {
-              'js/projects.dist.js' : 'js/projects.js'
+              'js/projects.dist.js' : 'js/projects.js',
+            }
+          }
+        },
+        browserify: {
+          options: {
+            transform: ['vueify']
+          },
+          mathsProblems: {
+            files: {
+              'js/maths-problems/app.dist.js': 'js/maths-problems/app.js'
             }
           }
         },
@@ -22,6 +32,10 @@ module.exports = function(grunt) {
             projects: {
               src: 'js/projects.dist.js',
               dest: 'js/projects.min.js'
+            },
+            mathsProblems: {
+              src: 'js/maths-problems/app.dist.js',
+              dest: 'js/maths-problems.min.js'
             },
         },
         less: {
@@ -83,7 +97,14 @@ module.exports = function(grunt) {
             },
             projects: {
               files: ['js/projects.js'],
-              tasks: ['babel', 'uglify'],
+              tasks: ['projects'],
+              options: {
+                spawn: false,
+              },
+            },
+            problems: {
+              files: ['js/maths-problems/*'],
+              tasks: ['problems'],
               options: {
                 spawn: false,
               },
@@ -100,13 +121,15 @@ module.exports = function(grunt) {
 
     // Load the plugins.
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    // Default task(s).
-    grunt.registerTask('default', ['babel', 'uglify', 'less', 'usebanner', 'concat']);
-
+    // Default tasks
+    grunt.registerTask('default', ['babel', 'browserify', 'uglify', 'less', 'usebanner', 'concat']);
+    grunt.registerTask('projects', ['babel', 'uglify:project']);
+    grunt.registerTask('problems', ['browserify', 'uglify:mathsProblems']);
 };
