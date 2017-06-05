@@ -1,7 +1,7 @@
 ---
 name: maths-problems.js
 description: npm package for generating and marking random maths questions
-tags: ['JavaScript','Node.js','Maths']
+tags: ['JavaScript','Node.js','Maths','Vue.js']
 type: personal
 date: 11/12/2015
 scripts: '/js/maths-problems.min.js'
