@@ -1,0 +1,34 @@
+<div id="app" class="row">
+  <div class="col-12 col-md-6">
+    <h2>Problem spec</h2>
+    <div class="form-group">
+      <label for="question">Question</label>
+      <textarea class="form-control" v-model="problem.question"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="answer">Answer formula</label>
+      <input type="text" class="form-control" v-model="problem.answer[0]" />
+    </div>
+    <div class="form-group">
+      <label for="answerFormat">Answer format</label>
+      <input type="text" class="form-control" v-model="problem.answerFormat" />
+    </div>
+    <a class="btn btn-primary" v-on:click="generateQuestions">Generate questions</a>
+  </div>
+  <div class="col-12 col-md-6">
+    <h2>Generated questions</h2>
+    <span v-if="questions.length === 0">No questions generated yet</span>
+    <div v-else v-for="question in questions">
+      <div class="form-group">
+        <label>{{ question.text }}</label>
+        <input type="text" v-model="question.answer" class="form-control" />
+        <div v-if="question.result">
+          <span v-show="question.result.correct">Correct!</span>
+          <span v-show="!question.result.correct">Incorrect! Correct answer is {{ question.result.answer }}</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" v-on:click="markQuestions">Mark answers</a>
+      <div v-if="question.result">{{ mark.mark }} / {{ mark.total }}</div>
+    </div>
+  </div>
+</div>

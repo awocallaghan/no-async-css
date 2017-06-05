@@ -4,9 +4,12 @@ description: npm package for generating and marking random maths questions
 tags: ['JavaScript','Node.js','Maths']
 type: personal
 date: 11/12/2015
+scripts: '/js/maths-problems.min.js'
 sections:
   - link: "#project-summary"
     title: Project summary
+  - link: "#example"
+    title: Example
   - link: "#methods"
     title: Methods
   - link: "#problems"
@@ -16,7 +19,17 @@ sections:
 ---
 # Project summary
 
-maths-problems is an [npm module](https://www.npmjs.com/package/maths-problems) that allows you to generate random maths questions with answers that can be validated. The source code is available on [GitHub](https://github.com/awocallaghan/maths-problems).
+maths-problems is an [npm module](https://www.npmjs.com/package/maths-problems) that allows you to generate random maths questions with answers that can be validated. The source code is available on [GitHub](https://github.com/awocallaghan/maths-problems) and downloadable via npm: `npm install maths-problems`.
+
+This package uses [mathsjs](http://mathjs.org/) to parse the problem answer formulas and initialise variable values. All functions supported by mathjs can be used to define problems, read the [docs](http://mathjs.org/docs/index.html) or view a simple example below.
+
+# Example
+
+An example question template and generated questions is demonstrated in the following [Vue](https://vuejs.org) component. Try creating and generating your own problems.
+
+<div id="maths-problems-example">
+  <maths-problems-app>Loading... (ensure JavaScript is enabled on a modern browser)</maths-problems-app>
+</div>
 
 # Methods
 
