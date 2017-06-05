@@ -59,26 +59,26 @@ gulp.task('build:css', ['concat:css']);
 // - Generate 'js/projects.dist.js' from 'js/projects.js'
 // - Use Babel to transpile ES2015
 gulp.task('js:projects', function () {
-  return gulp.src('js/projects.js')
+  return gulp.src('js/site/projects.js')
     .pipe(babel({
       presets: ['es2015']
     }))
     pipe(rename('projects.dist.js'))
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('./js/site'));
 });
 // - Generate 'js/maths-problems/app.dist.js'
 // - Use Browserify + Vueify
 gulp.task('js:maths-problems', function () {
   let b = browserify({
-    entries: './js/maths-problems/app.js',
+    entries: './js/maths-problems/src/app.js',
     debug: true,
     transform: [babelify, vueify]
   });
   return b.bundle()
-    .pipe(source('./js/maths-problems/app.js'))
+    .pipe(source('./js/maths-problems/src/app.js'))
     .pipe(buffer())
-    .pipe(rename('app.dist.js'))
-    .pipe(gulp.dest('./js/maths-problems'));
+    .pipe(rename('maths-problems.dist.js'))
+    .pipe(gulp.dest('./js/maths-problems/dist'));
 });
 // - All JS tasks
 gulp.task('js', ['js:projects', 'js:maths-problems'], function () {
@@ -98,11 +98,11 @@ function uglifyTask (src, rn, dest) {
   };
 }
 // - Uglify general website JS
-gulp.task('uglify:main', uglifyTask('js/clean-blog.js', 'clean-blog.min.js'));
+gulp.task('uglify:main', uglifyTask('js/clean-blog.js', 'clean-blog.min.js', './js/site'));
 // - Uglify projects page JS
-gulp.task('uglify:projects', ['js:projects'], uglifyTask('js/projects.dist.js', 'projects.min.js'));
+gulp.task('uglify:projects', ['js:projects'], uglifyTask('js/site/projects.dist.js', 'projects.min.js'));
 // - Uglify maths-problems Vue app
-gulp.task('uglify:maths-problems', ['js:maths-problems'], uglifyTask('js/maths-problems/app.dist.js', 'maths-problems.min.js'));
+gulp.task('uglify:maths-problems', ['js:maths-problems'], uglifyTask('js/maths-problems/dist/maths-problems.dist.js', 'maths-problems.min.js'));
 // - Uglify everything
 gulp.task('uglify', ['uglify:main','uglify:projects','uglify:maths-problems'], function () {
   console.log('Uglify tasks complete');
@@ -123,7 +123,7 @@ gulp.task('css:main', function () {
     }))
     .pipe(rename('clean-blog.min.css'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./css/site'));
 });
 // - All CSS tasks
 gulp.task('css', ['css:main'], function () {
@@ -141,9 +141,9 @@ function concatTask (src, rn, dest) {
   };
 }
 // - Concatenate minified CSS files into single 'css/style.min.css'
-gulp.task('concat:css', ['css:main'], concatTask(['css/bootstrap.min.css','css/tether.min.css','css/clean-blog.min.css','css/syntax.min.css','css/font-awesome.min.css','css/fonts.css'], 'style.min.css', './css'));
+gulp.task('concat:css', ['css:main'], concatTask(['css/vendor/bootstrap.min.css','css/vendor/tether.min.css','css/site/clean-blog.min.css','css/vendor/syntax.min.css','css/vendor/font-awesome.min.css','css/site/fonts.css'], 'style.min.css', './css'));
 // - Concatenate minified JS files into single 'js/common.min.js'
-gulp.task('concat:js', ['uglify'], concatTask(['js/jquery.min.js','js/tether.min.js','js/bootstrap.min.js','js/clean-blog.min.js'], 'common.min.js', './js'));
+gulp.task('concat:js', ['uglify'], concatTask(['js/vendor/jquery.min.js','js/vendor/tether.min.js','js/vendor/bootstrap.min.js','js/site/clean-blog.min.js'], 'common.min.js', './js'));
 // - Concat everything
 gulp.task('concat', ['concat:css', 'concat:js'], function () {
   console.log('Concatenation tasks complete');
@@ -154,19 +154,19 @@ gulp.task('concat', ['concat:css', 'concat:js'], function () {
 gulp.task('watch', ['watch:js','watch:css']);
 // - Watch JS
 gulp.task('watch:js', function () {
-  watch(['js/clean-blog.js','js/projects.js','js/maths-problems/*'], batch(function (events, done) {
+  watch(['js/site/clean-blog.js','js/site/projects.js','js/maths-problems/src/*'], batch(function (events, done) {
     gulp.start('build:js', done);
   }));
 });
 // - Watch JS: projects.js
 gulp.task('watch:js:projects', function () {
-  watch('js/projects.js', batch(function (events, done) {
+  watch('js/site/projects.js', batch(function (events, done) {
     gulp.start('build:js:projects', done);
   }));
 });
 // - Watch JS: maths-problems/app.js
 gulp.task('watch:js:maths-problems', function () {
-  watch('js/maths-problems/*', batch(function (events, done) {
+  watch('js/maths-problems/src/*', batch(function (events, done) {
     gulp.start('build:js:maths-problems', done);
   }));
 });
