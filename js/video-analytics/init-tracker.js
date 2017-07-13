@@ -3,10 +3,9 @@
 /**
  * Initialise the video tracker
  */
-
 var tracker = new window.tracker({
   debug: true,
-  events: ["loadedmetadata", "play", "pause", "seeking", "seeked", "volumechange", "timeupdate"],
+  events: ["loadedmetadata", "play", "pause", "seeking", "seeked", "volumechange", "timeupdate","confused"],
   data: {
     token: "11c9af04-bc31-4390-a4af-c9f258cc1d3b",
     url: "//video-analytics.herokuapp.com/log",
@@ -14,3 +13,10 @@ var tracker = new window.tracker({
 });
 tracker.init();
 window.tracker = tracker;
+
+/**
+ * Initialise the Video.js player w/ ConfusedButton
+ */
+videojs('video-player', {
+  plugins: { confusedButton: {} }
+});
