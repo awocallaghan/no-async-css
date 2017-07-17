@@ -28,4 +28,4 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
-exclude: ["LICENSE","node_modules","Gruntfile.js","Gulpfile.js","package.json","README.md",".babelrc",".gitignore","less","css/vendor","css/site","js/vendor","js/site","js/maths-problems"]
+exclude: ["LICENSE","node_modules","Gruntfile.js","Gulpfile.js","package.json","README.md",".babelrc",".gitignore","less","css/vendor","css/site","js/vendor","js/site","js/maths-problems/*"]
