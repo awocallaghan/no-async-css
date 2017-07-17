@@ -13,4 +13,6 @@ Clone the repository, run `jekyll serve`, and visit `localhost:4000` in your bro
 Dev tasks
 --
 
-This site uses [Grunt](https://github.com/gruntjs/grunt) to manage build tasks. Run `grunt` to build all assets, `grunt watch` to watch for changes.
+This project originally used [Grunt](https://github.com/gruntjs/grunt) to manage build tasks. Run `grunt` to build all assets, `grunt watch` to watch for changes. See `Gruntfile.js`.
+
+Additionally [Gulpjs](https://github.com/gulpjs/gulp) tasks have been recently added. See `Gulpfile.js`.
