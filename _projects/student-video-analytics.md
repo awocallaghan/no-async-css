@@ -9,6 +9,16 @@ sections:
    title: Project summary
  - link: "#technology"
    title: Technology
+ - link: "#live-version"
+   title: Live version
+styles:
+ - http://vjs.zencdn.net/5.8.8/video-js.css
+ - https://video-analytics.herokuapp.com/css/confusedbutton.video.css
+externalScripts:
+ - https://video-analytics.herokuapp.com/js/tracker.min.js
+ - http://vjs.zencdn.net/5.17.0/video.js
+ - https://video-analytics.herokuapp.com/js/confusedbutton.video.js
+scripts: /js/video-analytics/init-tracker.js
 ---
 # Project summary
 
@@ -19,3 +29,14 @@ In completion of BSc Computer Science at [University of Southampton](https://sou
 The system records student video interactions by tracking and logging DOM events emitted by HTMLVideoElements. The tracker is in the form of a JavaScript file that can be embedded in a HTML document and initialised with configuration values to determine what is tracked and where it is logged.
 
 The backend logging server is a Node.js web application using the Express framework. It stores logged student sessions in a RethinkDB database and provides a analytics dashboard for lecturers. This dashboard includes Vue.js + D3 components that provide visualisations of the recorded sessions.
+
+# Live version
+
+The web application is deployed on [Heroku](https://heroku.com) and accessible [here](https://video-analytics.heroku.com). You can login using a demo account (email: demo@example.com, password: 123456) to view logged data from the below video. Try playing through the video and see how your interactions are logged to the analytics dashboard (remember to disable any ad blockers).
+
+<video id="video-player" class="video-js" controls preload="auto" width="640" height="360">
+  <source src="/videos/secrets-x-chromosome.mp4"></source>
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>

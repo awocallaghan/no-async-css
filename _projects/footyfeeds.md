@@ -16,7 +16,9 @@ sections:
 
 **FootyFeeds** is a football news aggregation web application I created as a personal project. I was motivated to create a tool to allow football fans to access recent news articles related to their favourite team. FootyFeeds regularly searches a database of RSS feeds to find articles and categorise them by team. This project gave me experience using modern web development techniques and frameworks.
 
-I decided to create an interactive user experience by using Google's MVW framework [AngularJS](https://angularjs.org). I used [Node.js](https://nodejs.org/en/) web application framework [Express](https://expressjs.com) to create a RESTful API to allow interactions with a [PostgreSQL](https://www.postgresql.org) database.
+I decided to create an interactive user experience by using Google's MVW framework [Angular](https://angularjs.org). I used [Node.js](https://nodejs.org/en/) web application framework [Express](https://expressjs.com) to create a RESTful API to allow interactions with a [PostgreSQL](https://www.postgresql.org) database.
+
+I deployed the web application using [Heroku](https://heroku.com), and you can see it in action [here](https://footyfeeds.heroku.com).
 
 # Features
 
