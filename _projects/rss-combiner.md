@@ -10,13 +10,13 @@ sections:
   - link: "#usage"
     title: Usage
 ---
-# About
+## About
 
 Combine multiple RSS feeds into one using [node-feedparser](https://www.npmjs.com/package/node-feedparser "npm node-feedparser package") and [rss](https://www.npmjs.com/package/rss "npm rss package"). Available as an [npm package](https://www.npmjs.com/package/rss-combiner) and [open source on GitHub](https://github.com/awocallaghan/node-rss-combiner).
 
-# Usage
+## Usage
 
-## Combine feeds
+### Combine feeds
 
 ```js
 var RSSCombiner = require('rss-combiner');
@@ -37,7 +37,7 @@ RSSCombiner(feedConfig, function (err, combinedFeed) {
 });
 ```
 
-## `feedOptions`
+### `feedOptions`
 
 See [rss](https://www.npmjs.com/package/rss#feedoptions "feedOptions - rss (npm)") `feedOptions`
 
@@ -47,7 +47,7 @@ Additional options
 * `feeds` **array url string** array of feed_urls to retrieve content from
 * `softFail` _optional_ **boolean** if true failing to retrieve a single feed will not result in an error being thrown (default value: false)
 
-## Example `feedOptions`
+### Example `feedOptions`
 
 Creates a new feed with a maximum of 20 entries containing the latest entries from
 2 RSS feeds.

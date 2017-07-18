@@ -17,13 +17,13 @@ sections:
   - link: "#questions"
     title: Questions
 ---
-# Project summary
+## Project summary
 
 maths-problems is an [npm module](https://www.npmjs.com/package/maths-problems) that allows you to generate random maths questions with answers that can be validated. The source code is available on [GitHub](https://github.com/awocallaghan/maths-problems) and downloadable via npm: `npm install maths-problems`.
 
 This package uses [mathsjs](http://mathjs.org/) to parse the problem answer formulas and initialise variable values. All functions supported by mathjs can be used to define problems, read the [docs](http://mathjs.org/docs/index.html) or view a simple example below.
 
-# Example
+## Example
 
 An example question template and generated questions is demonstrated in the following [Vue](https://vuejs.org) component. Try creating and generating your own problems.
 
@@ -31,7 +31,7 @@ An example question template and generated questions is demonstrated in the foll
   <maths-problems-app>Loading... (ensure JavaScript is enabled on a modern browser)</maths-problems-app>
 </div>
 
-# Methods
+## Methods
 
 **generateQuestions (**_[problems]_, _[numbers]_**)**
 
@@ -85,7 +85,7 @@ _Example:_
     }
 ```
 
-# Problems
+## Problems
 
 ```js
     problemSchema = {
@@ -101,7 +101,7 @@ _Example:_
 
 **answerFormat** = Format the answer should be written in where each integer refers to an index in the _answers_ array. For example, "0" => the value of "{x}+{y}" after evaluated. We can use this to add units or algebraic variables eg. "0 cm" or "0x".
 
-# Questions
+## Questions
 
 Problems are used to generate questions, an example Question object:
 
