@@ -1,4 +1,4 @@
-<div id="carousel" class="carousel slide" data-ride="carousel">
+<div id="carousel" class="carousel carousel-dark slide" data-ride="carousel">
   <ol class="carousel-indicators">
     {% for img in page.carouselImages %}
       <li data-target="#carousel" data-slide-to="{% increment carouselIndicatorCounter %}" {% if forloop.first %}class="active"{% endif %}></li>
@@ -17,7 +17,7 @@
       </div>
     {% endfor %}
   </div>
-  <a class="carousel-control prev" href="#carousel" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>

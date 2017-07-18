@@ -14,3 +14,14 @@ activePage: 'projects'
   </section>
 {% endif %}
 {{ content }}
+
+{% if page.carouselImages %}
+  <h2 id="images">Images</h2>
+  {% include components/carousel.html %}
+{% endif %}
+
+<div class="text-center">
+  <a class="btn btn-primary" href="/projects">
+    &#x2190; All projects
+  </a>
+</div>
