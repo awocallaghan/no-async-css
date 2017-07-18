@@ -65,7 +65,11 @@
 <!-- Load deferred CSS -->
 
 <noscript id="deferred-styles">
-  <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl | prepend: site.url }}" />
+  {% if jekyll.environment == 'production' %}
+    <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl | prepend: site.url }}" />
+  {% else %}
+    <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
+  {% endif %}
   {% if page.styles %}
     {% for style in page.styles %}
       <link rel="stylesheet" type="text/css" href="{{ style }}" />
