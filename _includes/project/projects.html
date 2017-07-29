@@ -1,0 +1,18 @@
+{% assign i = 0 %}
+
+<div class="featured-projects flex-column flex-lg-row justify-content-center">
+{% for project in site.projects %}
+  {% if i < count %}
+    {% if type == 'featured' %}
+      {% assign projectName = project.url | remove: '/projects/' %}
+      {% if site.featuredProjects contains projectName %}
+        {% include project/project-summary.html %}
+        {% assign i = i | plus: 1 %}
+      {% endif %}
+    {% else %}
+      {% include project/project-summary.html %}
+      {% assign i = i | plus: 1 %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</div>
