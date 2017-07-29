@@ -15,6 +15,12 @@ collections:
     output: true
     permalink: /projects/:title
 
+# Featured projects
+featuredProjects:
+  - 'student-video-analytics'
+  - 'footyfeeds'
+  - 'maths-problems'
+
 defaults:
   - scope:
       path: ""
