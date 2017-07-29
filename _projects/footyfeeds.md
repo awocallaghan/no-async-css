@@ -1,6 +1,6 @@
 ---
 title: FootyFeeds
-description: RSS News aggregator
+description: RSS News aggregator web application using Angular + Express
 tags: ['JavaScript', 'Node.js', 'Angular', 'Express', 'PostgreSQL', 'RSS', 'HTML', 'CSS']
 type: personal
 date: 01/01/2016
