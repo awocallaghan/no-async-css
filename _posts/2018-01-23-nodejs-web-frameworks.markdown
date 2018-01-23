@@ -6,6 +6,7 @@ date:       2018-01-23 18:00:00
 modified:   2018-01-23 18:00:00
 author:     "Alex O'Callaghan"
 header-img: "/img/nodejs.jpg"
+preview-img: "/img/nodejs_small.jpg"
 description: Popular Node.js web development frameworks
 ---
 Express

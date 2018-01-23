@@ -5,6 +5,7 @@ subtitle:   "Use the 'gulp-sass' npm package to compile SASS"
 date:       2016-07-20 12:00:00
 author:     "Alex O'Callaghan"
 header-img: "/img/gulp-sass.png"
+preview-img: "/img/gulp-sass_small.png"
 description: A simple example of using Gulp to automate SASS compilation
 ---
 

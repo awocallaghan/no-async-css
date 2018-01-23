@@ -5,6 +5,7 @@ subtitle:   "Overview of Gulp.js"
 date:       2016-07-16 12:00:00
 author:     "Alex O'Callaghan"
 header-img: "/img/gulp.png"
+preview-img: "/img/gulp_small.png"
 description: An overview of the JavaScript automation library Gulp
 ---
 ## What is it?

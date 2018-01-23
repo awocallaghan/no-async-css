@@ -102,12 +102,14 @@ function uglifyTask (src, rn, dest) {
 }
 // - Uglify general website JS
 gulp.task('uglify:main', uglifyTask('js/site/clean-blog.js', 'clean-blog.min.js', './js/site'));
+// - Uglify rel=preload poly
+gulp.task('uglify:cssrelpreload', uglifyTask('_includes/js/cssrelpreload.js', 'cssrelpreload.min.js', './_includes/js'));
 // - Uglify projects page JS
 gulp.task('uglify:projects', ['js:projects'], uglifyTask('js/site/projects.dist.js', 'projects.min.js'));
 // - Uglify maths-problems Vue app
 gulp.task('uglify:maths-problems', ['js:maths-problems'], uglifyTask('js/maths-problems/dist/maths-problems.dist.js', 'maths-problems.min.js'));
 // - Uglify everything
-gulp.task('uglify', ['uglify:main','uglify:projects','uglify:maths-problems'], function () {
+gulp.task('uglify', ['uglify:main','uglify:cssrelpreload','uglify:projects','uglify:maths-problems'], function () {
   console.log('Uglify tasks complete');
 });
 

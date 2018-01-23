@@ -5,6 +5,7 @@ subtitle:   "Using Google PageSpeed Insights to ensure fast load times"
 date:       2017-05-10 17:00:00
 author:     "Alex O'Callaghan"
 header-img: "/img/speedmeter.jpg"
+preview-img: "/img/speedmeter_small.jpg"
 description: Optimizing page load speed can help reduce visitor bounce rate. Google PageSpeed Insights is a useful tool that can identify problem areas of a webpage that could be affecting the initial load time.
 ---
 # Contents
