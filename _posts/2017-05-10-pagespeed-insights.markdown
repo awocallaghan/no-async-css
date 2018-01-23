@@ -51,6 +51,8 @@ To stop JavaScript assets blocking rendering you should include them just before
 
 ### Optimizing CSS delivery
 
+**Note: I'm now using [Filament Group's async css](https://www.filamentgroup.com/lab/async-css.html) approach using [rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content) and [cssrelpreload.js](https://github.com/filamentgroup/loadCSS/blob/master/src/cssrelpreload.js) polyfill for older browser support.**
+
 CSS delivery can be optimized by inlining all styles for above the fold content within a `<style>` tag. Inlining all stylesheets isn't feasible for most websites and to mitigate this you can use the following example to extra CSS files after first browser rendering.
 
 ```
