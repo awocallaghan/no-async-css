@@ -1,0 +1,158 @@
+.navbar-custom {
+	// Override inline CSS that hides navbar
+	display: flex !important;
+	background: white;
+	width: 100%;
+	z-index: 3;
+	@include sans-serif;
+	.container {
+		width: 100%;
+	}
+	.navbar-brand {
+		color: #333;
+		font-weight: 800;
+		@media only screen and (max-width: calc($bp-lg - 1px)) {
+			padding-left: 15px;
+		}
+	}
+	.navbar-nav {
+		li {
+			a {
+				text-transform: uppercase;
+				font-size: 12px;
+				font-weight: 800;
+				letter-spacing: 1px;
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: $bp-lg) {
+		background: transparent;
+		border-bottom: 1px solid transparent;
+		-webkit-transition: background-color 0.3s;
+		-moz-transition: background-color 0.3s;
+		transition: background-color 0.3s;
+		/* Force Hardware Acceleration in WebKit */
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		.navbar-toggler {
+			border-color: transparent;
+		}
+		.navbar-toggler-icon {
+			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+		}
+		.navbar-brand {
+			color: white;
+			padding: 20px;
+			&:hover,
+			&:focus {
+				color: $white-faded;
+			}
+		}
+		.navbar-nav {
+			li {
+				a {
+					position: relative;
+					top: 10px;
+					color: $white-faded;
+					padding: 20px;
+					text-decoration: none;
+					transition: opacity 0.3s linear;
+					opacity: 0.8;
+					&:hover,
+					&:focus {
+						color: white;
+						opacity: 1;
+					}
+					&:after {
+						content: '';
+						display: block;
+						margin: 0 auto;
+						max-width: 25%;
+						opacity: 0.8;
+						transition: max-width 0.5s ease-in-out, opacity 0.3s ease-in-out;
+						height: 2px;
+						background-color: white;
+					}
+					&:hover:after {
+						max-width: 50%;
+						opacity: 1;
+						background-color: $brand-primary;
+					}
+				}
+				// Active nav item underline
+				&.active a {
+					opacity: 1;
+
+					&:after {
+						background-color: $brand-primary;
+						opacity: 1;
+					}
+				}
+			}
+		}
+		&.is-fixed {
+			/* when the user scrolls down, we hide the header right above the viewport */
+			position: fixed;
+			top: -87px;
+			background-color: rgba(white, 90);
+			border-bottom: 1px solid darken(white, 5%);
+			-webkit-transition: -webkit-transform 0.3s;
+			-moz-transition: -moz-transform 0.3s;
+			transition: transform 0.3s;
+			.navbar-toggler-icon {
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+			}
+			.navbar-brand {
+				color: $gray-dark;
+				&:hover,
+				&:focus {
+					color: $brand-primary;
+				}
+			}
+			.navbar-nav {
+				li {
+					a {
+						color: $gray-dark;
+						&:hover,
+						&:focus {
+							color: $brand-primary;
+							&:after {
+								background-color: $brand-primary;
+							}
+						}
+						&:after {
+							background-color: $gray-dark;
+						}
+					}
+					// Active nav item underline
+					&.active a:after {
+						background-color: $brand-primary;
+					}
+				}
+			}
+		}
+		&.is-visible {
+			/* if the user changes the scrolling direction, we show the header */
+			-webkit-transform: translate3d(0, 100%, 0);
+			-moz-transform: translate3d(0, 100%, 0);
+			-ms-transform: translate3d(0, 100%, 0);
+			-o-transform: translate3d(0, 100%, 0);
+			transform: translate3d(0, 100%, 0);
+		}
+	}
+}
+// Right align nav items on desktop
+@media only screen and (min-width: $bp-lg) {
+	.navbar-expand-md .navbar-collapse {
+		justify-content: flex-end;
+	}
+}

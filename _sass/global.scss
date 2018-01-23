@@ -1,0 +1,10 @@
+body {
+	@include serif;
+	font-size: 20px;
+	color: $gray-dark;
+}
+
+/* Hide all .css-loading class elements when CSS has loaded */
+.css-loading {
+	display: none !important;
+}

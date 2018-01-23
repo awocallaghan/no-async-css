@@ -47,13 +47,16 @@ const concat = require('gulp-concat');
 const watch = require('gulp-watch');
 const batch = require('gulp-batch');
 
+// Load JSON config
+const config = require('./Gulp.config.json');
+
 // Global build tasks
-gulp.task('build', ['js', 'uglify', 'css', 'concat']);
+gulp.task('build', ['js', 'uglify', /*'css',*/ 'concat']);
 gulp.task('build:js', ['concat:js','uglify']);
 gulp.task('build:js:main', ['concat:js']);
 gulp.task('build:js:projects', ['uglify:projects']);
 gulp.task('build:js:maths-problems', ['uglify:maths-problems']);
-gulp.task('build:css', ['concat:css']);
+//gulp.task('build:css', ['concat:css']);
 
 // Build JavaScript files
 // - Generate 'js/projects.dist.js' from 'js/projects.js'
@@ -98,7 +101,7 @@ function uglifyTask (src, rn, dest) {
   };
 }
 // - Uglify general website JS
-gulp.task('uglify:main', uglifyTask('js/clean-blog.js', 'clean-blog.min.js', './js/site'));
+gulp.task('uglify:main', uglifyTask('js/site/clean-blog.js', 'clean-blog.min.js', './js/site'));
 // - Uglify projects page JS
 gulp.task('uglify:projects', ['js:projects'], uglifyTask('js/site/projects.dist.js', 'projects.min.js'));
 // - Uglify maths-problems Vue app
@@ -108,6 +111,7 @@ gulp.task('uglify', ['uglify:main','uglify:projects','uglify:maths-problems'], f
   console.log('Uglify tasks complete');
 });
 
+/*
 // Build CSS files
 // - Compile LESS styles
 gulp.task('css:main', function () {
@@ -128,7 +132,7 @@ gulp.task('css:main', function () {
 // - All CSS tasks
 gulp.task('css', ['css:main'], function () {
   console.log('CSS tasks complete');
-});
+});*/
 
 // Concatenate files
 // - Generic concatenation task function
@@ -141,17 +145,21 @@ function concatTask (src, rn, dest) {
   };
 }
 // - Concatenate minified CSS files into single 'css/style.min.css'
-gulp.task('concat:css', ['css:main'], concatTask(['css/vendor/bootstrap.min.css','css/vendor/tether.min.css','css/site/clean-blog.min.css','css/vendor/syntax.min.css','css/vendor/font-awesome.min.css','css/site/fonts.css'], 'style.min.css', './css'));
+//gulp.task('concat:css', ['css:main'], concatTask(['css/vendor/bootstrap.min.css','css/vendor/tether.min.css','css/site/clean-blog.min.css','css/vendor/syntax.min.css','css/vendor/font-awesome.min.css','css/site/fonts.css'], 'style.min.css', './css'));
 // - Concatenate minified JS files into single 'js/common.min.js'
-gulp.task('concat:js', ['uglify'], concatTask(['js/vendor/jquery.min.js','js/vendor/tether.min.js','js/vendor/bootstrap.min.js','js/site/clean-blog.min.js'], 'common.min.js', './js'));
+gulp.task(
+  'concat:js', 
+  ['uglify'], 
+  concatTask(config["concat:js"].files, config["concat:js"].rn, './js')
+);
 // - Concat everything
-gulp.task('concat', ['concat:css', 'concat:js'], function () {
+gulp.task('concat', [/*'concat:css',*/ 'concat:js'], function () {
   console.log('Concatenation tasks complete');
 });
 
 // Watch files
 // - Watch everything
-gulp.task('watch', ['watch:js','watch:css']);
+gulp.task('watch', ['watch:js',/*'watch:css'*/]);
 // - Watch JS
 gulp.task('watch:js', function () {
   watch(['js/site/clean-blog.js','js/site/projects.js','js/maths-problems/src/*'], batch(function (events, done) {
@@ -170,9 +178,10 @@ gulp.task('watch:js:maths-problems', function () {
     gulp.start('build:js:maths-problems', done);
   }));
 });
+/*
 // - Watch CSS
 gulp.task('watch:css', function () {
   watch('less/*.less', batch(function (events, done) {
     gulp.start('build:css', done);
   }));
-});
+});*/

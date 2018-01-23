@@ -1,0 +1,11 @@
+{
+    "concat:js": {
+        "files": [
+            "js/vendor/jquery.min.js",
+            "js/vendor/tether.min.js",
+            "js/vendor/bootstrap.min.js",
+            "js/site/clean-blog.min.js"
+        ],
+        "rn": "common.min.js"
+    }
+}

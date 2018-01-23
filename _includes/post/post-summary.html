@@ -10,12 +10,11 @@
   <div class="post-preview-content col-12">
   {% endif %}
     <!--<a href="{{ post.url | prepend: site.baseurl }}">-->
-        <h4 class="post-title">{{ post.title }}
-        </h4>
+        <h2 class="post-title">{{ post.title }}</h2>
         {% if post.subtitle %}
-        <h5 class="post-subtitle">
+        <h3 class="post-subtitle">
             {{ post.subtitle }}
-        </h5>
+        </h3>
         {% endif %}
     <!--</a>-->
     <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
@@ -23,4 +22,8 @@
   {% if post.header-img %}</div>{% endif %}
   </a>
 </div>
-<hr>
+{% if small and count != 2 %}
+  <hr>
+{% elsif small != true and count != posts.size - 1 %}
+  <hr>
+{% endif %}

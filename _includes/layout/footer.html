@@ -48,7 +48,6 @@
         </div>
     </div>
 </footer>
-
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -61,49 +60,18 @@
     ]
   }
 </script>
-
-<!-- Load deferred CSS -->
-
-<noscript id="deferred-styles">
-  {% if jekyll.environment == 'production' %}
-    <link rel="stylesheet" type="text/css" href="{{ "/css/style.min.css" | prepend: site.baseurl | prepend: site.url }}" />
-  {% else %}
-    <link rel="stylesheet" type="text/css" href="/css/style.min.css" />
-  {% endif %}
-  {% if page.styles %}
-    {% for style in page.styles %}
-      <link rel="stylesheet" type="text/css" href="{{ style }}" />
-    {% endfor %}
-  {% endif %}
-</noscript>
-<script>
-  var loadDeferredStyles = function() {
-    var addStylesNode = document.getElementById("deferred-styles");
-    var replacement = document.createElement("div");
-    replacement.innerHTML = addStylesNode.textContent;
-    document.body.appendChild(replacement)
-    addStylesNode.parentElement.removeChild(addStylesNode);
-  };
-  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-      webkitRequestAnimationFrame || msRequestAnimationFrame;
-  if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-  else window.addEventListener('load', loadDeferredStyles);
-</script>
-
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 <!-- Common JavaScript -->
 {% if jekyll.environment == 'production' %}
 <script src="{{ "/js/common.min.js " | prepend: site.baseurl | prepend: site.url }}"></script>
 {% else %}
 <script src="/js/common.min.js"></script>
 {% endif %}
-
 {% if page.scripts %}
 <!-- Custom JavaScript per page -->
   {% for script in page.externalScripts %}
@@ -116,7 +84,6 @@
       <script src="{{ script }}"></script>
     {% endif %}
   {% endfor %}
-
 {% endif %}
 {% if jekyll.environment == 'production' %}
 <!-- Google Analytics -->

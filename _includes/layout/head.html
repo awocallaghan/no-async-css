@@ -12,40 +12,150 @@
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Async CSS -->
+    {% if jekyll.environment == 'production' %}
+      <link rel="preload" href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+      <noscript><link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" /></noscript>
+    {% else %}
+      <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+      <noscript><link rel="stylesheet" href="/css/style.css" /></noscript>
+    {% endif %}
+    {% if page.styles %}
+      {% for style in page.styles %}
+        <link rel="preload" href="{{ style }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="{{ style }}" /></noscript>
+      {% endfor %}
+    {% endif %}
+    <!-- Polyfill preload -->
+    <script type="text/javascript">
+      {% include js/cssrelpreload.js %}
+    </script>
 
-    <!-- Minimal CSS -->
+    <!-- Minimal inline CSS -->
     <style>
       body {
         margin: 0;
       }
-      .navbar-custom, #content, footer, hr {
+      hr {
         display: none;
       }
-      .container {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
+      .navbar-custom {
+        display: flex;
+        background-color: white;
+        padding: .5rem 1rem;
         max-width: 100%;
+      }
+      .fixed-top {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+      .navbar-custom .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+      .navbar-custom .navbar-toggler,
+      .navbar-custom .navbar-collapse {
+        display: none;
+      }
+      .navbar-custom .navbar-brand {
+        display: inline-block;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+        font-weight: 800;
+        color: black;
+      }
+      .navbar-nav {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+      }
+      .navbar-custom .navbar-nav li a {
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 1px;
+      }
+      @media only screen and (min-width: 992px) {
+        .navbar-custom {
+          background-color: transparent;
+        }
+        .navbar-custom .container {
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+          flex-direction: row;
+          -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+        }
+        .navbar-custom .navbar-collapse {
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+        }
+        .navbar-nav {
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+          flex-direction: row;
+        }
+        .navbar-custom .navbar-nav li a {
+            position: relative;
+            top: 10px;
+            color: #fff;
+            padding: 20px;
+            text-decoration: none;
+        }
+        .navbar-custom .navbar-brand {
+          padding: 20px;
+          color: white;
+        }
+      }
+      .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
       }
       .intro-header {
         background: no-repeat center center;
         background-attachment: scroll;
         background-size: cover;
-        min-height: 75vh;
-        max-width: 100%;
+        min-height: 40vh;
         transition: min-height 1s ease-in-out;
+        padding: 100px 0 50px;
       }
       .intro-header .site-heading,
       .intro-header .post-heading,
       .intro-header .page-heading {
         text-align: center;
-        padding: 100px 0 50px;
         color: white;
       }
       h1 {
-        font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
         font-weight: 800;
-        line-height: 1.1;
         margin-bottom: .5rem;
       }
       hr.small {
@@ -56,20 +166,77 @@
         border-color: white;
       }
       .intro-header .subheading {
+        display: block;
         font-size: 24px;
-        line-height: 1.1;
-        font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
         font-weight: 300;
-        magin: 10px 0 0;
+        margin: 10px 0 0;
       }
-      @media only screen and (min-width: 768px) {
-        .intro-header .site-heading,
-        .intro-header .post-heading,
-        .intro-header .page-heading {
-          padding: 150px 0;
-        }
-        .intro-header h1 {
-          font-size: 80px;
+      img {
+        max-width: 25%;
+      }
+      a {
+        color: #0f0f0f;
+      }
+      a:hover, a:focus {
+        color: #0085A1;
+      }
+      body {
+        font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+        line-height: 1.1;
+      }
+      p {
+        line-height: 1.5;
+        margin: 30px 0;
+      }
+      .project-summary {
+        background: no-repeat;
+      }
+      footer .list-inline {
+        display: none;
+      }
+      .collapse {
+        display: none;
+      }
+      .post-preview {
+        text-align: center;
+        margin: .5rem 0;
+      }
+      .load-container {
+        position: relative;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        margin: 30px auto;
+      }
+      .double-bounce1, .double-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #0085A1;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+        animation: sk-bounce 2.0s infinite ease-in-out;
+      }
+      .double-bounce2 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+      } 
+      @-webkit-keyframes sk-bounce {
+        0%, 100% { -webkit-transform: scale(0.0) }
+        50% { -webkit-transform: scale(1.0) }
+      }  
+      @keyframes sk-bounce {
+        0%, 100% { 
+          transform: scale(0.0);
+          -webkit-transform: scale(0.0);
+        } 50% { 
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
         }
       }
     </style>
