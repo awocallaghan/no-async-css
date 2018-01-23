@@ -25,7 +25,7 @@ carouselImages:
 
 I designed and implemented a simple website layout using HTML/CSS. I used the [jQuery](https://jquery.com/) JavaScript library and [Unslider](http://unslider.com/) to power the image slider. I used [WolfCMS](https://www.wolfcms.org/) for a lightweight backend PHP panel.
 
-The website files were upload using FTP to the client's web server.
+The website files were uploaded using FTP to the client's web server.
 
 ## Final product
 
