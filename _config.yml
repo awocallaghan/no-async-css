@@ -5,7 +5,7 @@ email: aocallaghan@outlook.com
 description: "Personal website, portfolio, and blog of software developer Alex O'Callaghan"
 baseurl: ""
 url: "//alexocallaghan.com"
-plainurl: "alexocallaghan.com"
+secureurl: "https://alexocallaghan.com"
 twitter_username: alexocallaghan
 github_username:  awocallaghan
 facebook_username:

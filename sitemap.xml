@@ -8,43 +8,43 @@ layout: null
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>http://alexocallaghan.com/</loc>
+    <loc>https://alexocallaghan.com/</loc>
     <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://alexocallaghan.com/about/</loc>
+    <loc>https://alexocallaghan.com/about/</loc>
     <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://alexocallaghan.com/blog/</loc>
+    <loc>https://alexocallaghan.com/blog/</loc>
     <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   {% for post in site.posts %}
     <url>
-      <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
+      <loc>{{ post.url | prepend: site.baseurl | prepend: site.secureurl }}</loc>
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   {% endfor %}
   <url>
-    <loc>http://alexocallaghan.com/projects/</loc>
+    <loc>https://alexocallaghan.com/projects/</loc>
     <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   {% for project in site.projects %}
     {% if project.external == undefined %}
       <url>
-        <loc>{{ project.url | prepend: site.baseurl | prepend: site.url }}</loc>
+        <loc>{{ project.url | prepend: site.baseurl | prepend: site.secureurl }}</loc>
         <lastmod>{{ project.date | date_to_xmlschema }}</lastmod>
         <changefreq>weekly</changefreq>
       </url>
     {% endif %}
   {% endfor %}
   <url>
-    <loc>http://alexocallaghan.com/contact</loc>
+    <loc>https://alexocallaghan.com/contact</loc>
     <lastmod>2017-07-04T17:30:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
