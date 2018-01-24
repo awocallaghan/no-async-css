@@ -1,0 +1,32 @@
+// Import required bootstrap styles
+// - Required setup
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+// - Import required mixins
+@import "bootstrap/mixins/breakpoints";
+@import "bootstrap/mixins/grid-framework";
+@import "bootstrap/mixins/grid";
+@import 'bootstrap/mixins/hover';
+@import 'bootstrap/mixins/lists';
+@import 'bootstrap/mixins/border-radius';
+@import 'bootstrap/mixins/buttons';
+@import 'bootstrap/mixins/transition';
+@import 'bootstrap/mixins/box-shadow';
+@import 'bootstrap/mixins/gradients';
+// - Reset defaults, set up type basics
+//@import "bootstrap/reboot";
+//@import "bootstrap/type";
+@import "_inline-type";
+// - Minimal navbar styles
+@import "_inline-navbar";
+.collapse { display: none; }
+// - Minimal grid system
+@import "_inline-grid";
+
+// Import required custom styles
+@import "variables";
+@import "mixins";
+@import "global";
+@import "typography";
+@import "navbar";
+@import "intro-header";

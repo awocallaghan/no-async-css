@@ -156,3 +156,10 @@
 		justify-content: flex-end;
 	}
 }
+// Fixed top class
+.fixed-top {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+}
