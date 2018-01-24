@@ -41,7 +41,7 @@ The backend logging server is a Node.js web application using the Express framew
 
 ## Live version
 
-The web application is deployed on [Heroku](https://heroku.com) and accessible [here](https://video-analytics.heroku.com). You can login using a demo account (email: demo@example.com, password: 123456) to view logged data from the below video. Try playing through the video and see how your interactions are logged to the analytics dashboard (remember to disable any ad blockers).
+The web application is deployed on [Heroku](https://heroku.com) and accessible [here](https://video-analytics.herokuapp.com). You can login using a demo account (email: demo@example.com, password: 123456) to view logged data from the below video. Try playing through the video and see how your interactions are logged to the analytics dashboard (remember to disable any ad blockers).
 
 <video id="video-player" class="video-js" controls preload="auto" width="640" height="360">
   <source src="/videos/secrets-x-chromosome.mp4"></source>
