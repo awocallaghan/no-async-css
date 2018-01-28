@@ -14,29 +14,10 @@
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-    <!-- Async CSS -->
-    {% if jekyll.environment == 'production' %}
-      <link rel="preload" href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-      <noscript><link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" /></noscript>
-    {% else %}
-      <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-      <noscript><link rel="stylesheet" href="/css/style.css" /></noscript>
-    {% endif %}
+    <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" />
     {% if page.styles %}
       {% for style in page.styles %}
-        <link rel="preload" href="{{ style }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-        <noscript><link rel="stylesheet" href="{{ style }}" /></noscript>
+        <link rel="stylesheet" href="{{ style }}" />
       {% endfor %}
     {% endif %}
-    <!-- Polyfill preload -->
-    <script type="text/javascript">
-      {% include js/cssrelpreload.min.js %}
-    </script>
-
-    <style type="text/css">
-      {% capture include_to_scssify %}
-        {% include css/inline.scss %}
-      {% endcapture %}
-      {{ include_to_scssify | scssify }}
-    </style>
 </head>
