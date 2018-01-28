@@ -7,128 +7,209 @@ activePage: "about"
 ---
 <div class="row">
   <div class="col-12 col-md-8">
-      <h3>Education</h3>
-      <ul>
-        <li>
-          <em>2014-2017</em> &mdash; University of Southampton
-          <ul>
-            <li>
-              <a href="https://www.ecs.soton.ac.uk/programmes/bsc-computer-science" target="_blank">BSc. Computer Science</a> (3 years &mdash; Hons 2:1)
-              <ul id="comp-sci-accordion">
-                <li>
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-one" aria-expanded="false" aria-controls="comp-sci-accordion-year-one">
-                    Year One
-                  </button>
-                  <ul id="comp-sci-accordion-year-one" class="collapse" data-parent="#comp-sci-accordion">
-                    <li>Programming 1 &amp; 2</li>
-                    <li>Algorithmics</li>
-                    <li>Foundations of Computer Science</li>
-                    <li>Computer Systems</li>
-                    <li>Data Management</li>
-                    <li>Professional Development</li>
-                    <li>Foundations of Computer Science</li>
-                    <li>Software Modelling and Design</li>
-                  </ul>
-                </li>
-                <li>
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-two" aria-expanded="false" aria-controls="comp-sci-accordion-year-two">
-                    Year Two
-                  </button>
-                  <ul id="comp-sci-accordion-year-two" class="collapse" data-parent="#comp-sci-accordion">
-                    <li>Programming 3</li>
-                    <li>Distributed Systems and Networks</li>
-                    <li>Life in the Cosmos</li>
-                    <li>Intelligent Systems</li>
-                    <li>Theory of Computing</li>
-                    <li>Software Engineering Group Project</li>
-                    <li>Programming Language Concepts</li>
-                    <li>Interaction Design</li>
-                  </ul>
-                </li>
-                <li>
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-three" aria-expanded="false" aria-controls="comp-sci-accordion-year-three">
-                    Year Three
-                  </button>
-                  <ul id="comp-sci-accordion-year-three" class="collapse" data-parent="#comp-sci-accordion">
-                    <li><a href="/projects/student-video-analytics">Part III Individual Project</a></li>
-                    <li>Global Challenges</li>
-                    <li>Social Enterprise</li>
-                    <li>Cyber Security</li>
-                    <li>Computational Biology</li>
-                    <li>Game Design and Development</li>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <em>2012-2014</em> &mdash; Queensmead High School (Sixth Form)
-          <ul>
-            <li>
-              A-Levels
-              <ul>
-                <li>Maths (A)</li>
-                <li>Further Maths (A)</li>
-                <li>Computing (A)</li>
-              </ul>
-            </li>
-            <li>
-              AS-Levels
-              <ul>
-                <li>Physics (B)</li>
-                <li>Extended Project Qualification (A)</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><em>2007-2012</em> &mdash; Queensmead High School &mdash; GCSEs incl. Maths &amp; English</li>
-      </ul>
+    <h3>About me</h3>
+    <p>
+      My name is Alex O'Callaghan and I'm a software developer from London, England. I have a particular interest in web application development and I completed <em>BSc Computer Science</em> at the <a href="https://southampton.ac.uk" target="_blank">University of Southampton</a> in 2017.
+    </p>
+    <div class="row justify-content-center my-5">
+      <div class="col-12 col-md-4">
+        <a href="#education" class="btn btn-primary">Education</a>
+      </div>
+      <div class="col-12 col-md-4">
+        <a href="#skills" class="btn btn-secondary">Skills</a>
+      </div>
+    </div>
   </div>
   <div class="col-12 col-md-4">
     <h3>Links</h3>
+    <h4>More about me</h4>
+    <ul>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="/projects">Project portfolio</a></li>
+      <li><a target="_blank" href="/pdf/cv_20180128.pdf">CV (PDF)</a></li>
+    </ul>
+    <hr />
+    <h4>Other links</h4>
     <ul>
       <li><a href="https://github.com/awocallaghan" target="_blank">awocallaghan on GitHub</a></li>
       <li><a href="https://www.npmjs.com/~awocallaghan" target="_blank">awocallaghan on npm</a></li>
     </ul>
   </div>
 </div>
-<div class="row">
+<hr />
+<div class="row" id="education">
   <div class="col-12">
-    <h3>About me</h3>
-    <p>
-      My name is Alex O'Callaghan and I'm a web developer from London, England. This is my personal website created to publish blog
-      posts and projects as I develop my programming skills and create new tools.
-    </p>
-    <p>
-      I'm interested in all areas of software development with a particular interest
-      in web development. I completed <em>BSc Computer Science</em> at the <a href="https://southampton.ac.uk" target="_blank">University of Southampton</a> giving me a strong understanding of
-      <strong>Object Orientated Programming</strong> using <strong>Java</strong> and
-      exposed me to <strong>Functional Programming Languages</strong> such as
-      <strong>Scheme</strong> and <strong>OCaml</strong>. Furthermore I have a firm
-      grasp of fundamental Computer Science concepts such as algorithmic complexity,
-      computability and data structures. For my final year project I designed and implemented a video analytics web application for university lecturers using <strong>Vue.js</strong> + <strong>Data-Driven Documents (D3)</strong>, <strong>Express</strong>, and <strong>RethinkDB</strong>.
-    </p>
-    <p>
-      In my free time I have delved into web development experimenting with
-      <strong>JavaScript</strong> front end libraries/frameworks such as <strong>jQuery</strong>,
-      <strong>Angular</strong>, <strong>React</strong> and <strong>Vue.js</strong>.
-      I've created
-      <a href="https://www.npmjs.com/~awocallaghan" target="_blank">npm packages</a>
-      contributing to the open source JavaScript community and familiarised myself
-      with best practices and useful build tools such as <strong>Gulp</strong>,
-      <strong>Grunt</strong>, <strong>Webpack</strong>,  and <strong>Browserify</strong>. I've also got experience working with a range of server-side languages including <strong>JavaScript (Node.js)</strong>, <strong>PHP (Laravel, WordPress)</strong>, <strong>C# (ASP.NET MVC)</strong>.
-    </p>
-    <p>
-      I have a strong understanding of <strong>HTML5</strong> and <strong>CSS3</strong>.
-      I've used CSS preprocessors such as <strong>SASS</strong> and <strong>LESS</strong>
-      and popular frameworks such as <strong>Bootstrap</strong> and <strong>Foundation</strong>
-      to create responsive websites. I've completed freelance web development work
-      designing and implementing professional websites to clients' requirements.
-      I've employed the iterative Agile software development methodology of conducting
-      scrums and sprints to burn through the project backlog when working as a software development team. Furthermore, I understand
-      the importance of following <strong>Test Driven Development (TDD)</strong>
-      and <strong>Behaviour Driven Development (BDD)</strong> to ensure a project
-      meets all functional and user experience requirements.
-    </p>
+    <h3>Education</h3>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <ul>
+          <li>
+            <a href="https://www.ecs.soton.ac.uk/programmes/bsc-computer-science" target="_blank">BSc. Computer Science</a> (3 years &mdash; Hons 2:1)
+            <ul id="comp-sci-accordion">
+              <li>
+                <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-one" aria-expanded="false" aria-controls="comp-sci-accordion-year-one">
+                  Year One
+                </button>
+                <ul id="comp-sci-accordion-year-one" class="collapse" data-parent="#comp-sci-accordion">
+                  <li>Programming 1 &amp; 2</li>
+                  <li>Algorithmics</li>
+                  <li>Foundations of Computer Science</li>
+                  <li>Computer Systems</li>
+                  <li>Data Management</li>
+                  <li>Professional Development</li>
+                  <li>Foundations of Computer Science</li>
+                  <li>Software Modelling and Design</li>
+                </ul>
+              </li>
+              <li>
+                <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-two" aria-expanded="false" aria-controls="comp-sci-accordion-year-two">
+                  Year Two
+                </button>
+                <ul id="comp-sci-accordion-year-two" class="collapse" data-parent="#comp-sci-accordion">
+                  <li>Programming 3</li>
+                  <li>Distributed Systems and Networks</li>
+                  <li>Life in the Cosmos</li>
+                  <li>Intelligent Systems</li>
+                  <li>Theory of Computing</li>
+                  <li>Software Engineering Group Project</li>
+                  <li>Programming Language Concepts</li>
+                  <li>Interaction Design</li>
+                </ul>
+              </li>
+              <li>
+                <button class="btn btn-link" data-toggle="collapse" data-target="#comp-sci-accordion-year-three" aria-expanded="false" aria-controls="comp-sci-accordion-year-three">
+                  Year Three
+                </button>
+                <ul id="comp-sci-accordion-year-three" class="collapse" data-parent="#comp-sci-accordion">
+                  <li><a href="/projects/student-video-analytics">Part III Individual Project</a></li>
+                  <li>Global Challenges</li>
+                  <li>Social Enterprise</li>
+                  <li>Cyber Security</li>
+                  <li>Computational Biology</li>
+                  <li>Game Design and Development</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <ul>
+          <li>
+            <em>2012-2014</em> &mdash; Queensmead High School (Sixth Form)
+            <ul>
+              <li>
+                A-Levels
+                <ul>
+                  <li>Maths (A)</li>
+                  <li>Further Maths (A)</li>
+                  <li>Computing (A)</li>
+                </ul>
+              </li>
+              <li>
+                AS-Levels
+                <ul>
+                  <li>Physics (B)</li>
+                  <li>Extended Project Qualification (A)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <em>2007-2012</em> &mdash; Queensmead High School
+            <ul>
+              <li>13 GCSEs grade A*-B, including English B and Maths A*</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="row" id="skills">
+  <div class="col-12">
+    <h3>Skills</h3>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h4>Languages</h4>
+        <ul>
+          <li>JavaScript</li>
+          <li>HTML</li>
+          <li>CSS + SASS/LESS</li>
+          <li>PHP</li>
+          <li>Java</li>
+          <li>C#</li>
+          <li>Python</li>
+          <li>Scheme</li>
+          <li>OCaml</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <h4>Framework/libraries</h4>
+        <ul>
+          <li>
+            JavaScript (Frontend)
+            <ul>
+              <li><a href="https://jquery.com" target="_blank">jQuery</a></li>
+              <li><a href="https://vuejs.org" target="_blank">Vue.js</a></li>
+              <li><a href="https://angularjs.org" target="_blank">AngularJS</a>/<a href="https://angular.io" target="_blank">Angular</a></li>
+              <li><a href="https://reactjs.org" target="_blank">React</a></li>
+              <li><a href="https:/d3js.org" target="_blank">D3.js</a></li>
+            </ul>
+          </li>
+          <li>
+            JavaScript (Backend)
+            <ul>
+              <li><a href="https://expressjs.com" target="_blank">Express</a></li>
+              <li><a href="https://loopback.io" target="_blank">Loopback</a></li>
+              <li><a href="https://sailsjs.com" target="_blank">Sails.js</a></li>
+              <li><a href="https://hapijs.com" target="_blank">Hapi.js</a></li>
+            </ul>
+          </li>
+          <li>
+            HTML/CSS
+            <ul>
+              <li><a href="https://getbootstrap.com" target="_blank">Bootstrap v3 &amp; v4</a></li>
+              <li><a href="https://foundation.zurb.com/" target="_blank">Foundation</a></li>
+            </ul>
+          </li>
+          <li>
+            PHP
+            <ul>
+              <li><a href="https://wordpress.org" target="_blank">Wordpress</a></li>
+              <li><a href="https://laravel.com" target="_blank">Laravel</a></li>
+            </ul>
+          </li>
+          <li>
+            C#
+            <ul>
+              <li><a href="https://www.asp.net/mvc" target="_blank">ASP .NET MVC</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h4>Database management systems</h4>
+        <ul>
+          <li><a href="https://www.mysql.com" target="_blank">MySQL</a></li>
+          <li><a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a></li>
+          <li><a href="https://www.microsoft.com/en-gb/sql-server/sql-server-2016" target="_blank">MSSQL</a></li>
+          <li><a href="https://www.mongodb.com/" target="_blank">Mongodb</a></li>
+          <li><a href="https://www.rethinkdb.com/" target="_blank">RethinkDB</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <h4>Development lifecycle</h4>
+        <ul>
+          <li>Agile</li>
+          <li>Test driven development (TDD)</li>
+          <li>Behaviour driven development (BDD)</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

@@ -14,20 +14,12 @@ splashHeader: true
   <p>
     I am a software developer focusing on full stack web development. I completed <a href="https://www.ecs.soton.ac.uk/programmes/bsc-computer-science" target="_blank">BSc Computer Science</a> at <a href="https://southampton.ac.uk" target="_blank">University of Southampton</a> in 2017.
   </p>
-  <div class="row justify-content-center">
-    <div class="col-xs-4">
-      <a class="btn btn-secondary mx-2 my-2" href="/about">More about me</a>
-    </div>
-    <div class="col-xs-4">
-      <a class="btn btn-primary mx-2 my-2" href="/projects">Browse project portfolio</a>
-    </div>
+  <div class="row justify-content-center my-4">
+    <a class="btn btn-secondary mx-2 my-2" href="/about">More about me</a>
   </div>
   <hr />
   <h2>
     Projects
-    <a href="/projects">
-      <i class="fa fa-plus pull-right"></i>
-    </a>
   </h2>
   {% assign type = 'featured' %}
   {% assign count = 3 %}
@@ -38,9 +30,6 @@ splashHeader: true
   <hr />
   <h2>
     Recent blog posts
-    <a target="_blank" href="/feed.xml">
-      <i class="fa fa-rss pull-right"></i>
-    </a>
   </h2>
   {% assign small = true %}
   {% include post/posts.html %}

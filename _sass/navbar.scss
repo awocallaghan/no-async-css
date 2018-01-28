@@ -152,7 +152,7 @@
 }
 // Right align nav items on desktop
 @media only screen and (min-width: $bp-lg) {
-	.navbar-expand-md .navbar-collapse {
+	.navbar-custom .navbar-collapse {
 		justify-content: flex-end;
 	}
 }

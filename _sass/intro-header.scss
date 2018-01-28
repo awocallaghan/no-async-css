@@ -1,76 +1,37 @@
 .intro-header {
-	min-height: 10px;
-	background: no-repeat center center;
-	background-color: $gray;
-	background-attachment: scroll;
-	@include background-cover;
-	// NOTE: Background images are set within the HTML using inline CSS!
+	// NOTE: All Background properties are set within the HTML using style attribute
 	margin-bottom: 50px;
-	// Reset padding from inline CSS
-	padding: 0;
-	.site-heading,
-	.post-heading,
-	.page-heading {
-		color: white;
-		padding: 50px 0 25px;
-	}
-	// Padding on .splash headers
-	&.splash .site-heading,
-	&.splash .post-heading,
-	&.splash .page-heading {
+	color: white;
+	padding: 50px 0 25px;
+	text-align: center;
+
+	// Extra padding on .splash
+	&.splash {
 		padding: 100px 0 50px;
 		@media only screen and (min-width: $bp-md) {
 			padding: 150px 0 75px;
 		}
 	}
-	.site-heading,
-	.page-heading {
-		text-align: center;
-		h1 {
-			margin-top: 0;
-			font-size: 50px;
-			text-shadow: 2px 2px rgba(0,0,0,0.4);
-		}
-		.subheading {
-			font-size: 24px;
-			line-height: 1.1;
-			display: block;
-			@include sans-serif;
-			font-weight: 300;
-			margin: 10px 0 0;
-		}
+
+	h1 {
+		margin-top: 1em;
+		font-size: 2.25em;
+		text-shadow: 2px 2px hsla(0, 0%, 0%, 0.40);
 	}
-	.post-heading {
-		h1 {
-			font-size: 35px;
-		}
-		.subheading,
-		.meta {
-			line-height: 1.1;
-			display: block;
-		}
-		.subheading {
-			@include sans-serif;
-			font-size: 24px;
-			margin: 10px 0 30px;
-			font-weight: 600;
-		}
-		.meta {
-			@include serif;
-			font-style: italic;
-			font-weight: 300;
-			font-size: 20px;
-			a {
-				color: white;
-			}
-		}
-		@media only screen and (min-width: $bp-md) {
-			h1 {
-				font-size: 55px;
-			}
-			.subheading {
-				font-size: 30px;
-			}
+	.subheading, .meta {
+		line-height: 1.1;
+		display: block;
+		font-weight: 300;
+		@include sans-serif;
+		margin: 10px 0 0;
+	}
+	.subheading {
+		font-size: 1.4em;
+	}
+	.meta {
+		font-size: 1em;
+		a {
+			color: white;
 		}
 	}
 }
